@@ -1,0 +1,30 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "problem_id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "problem": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "input_output": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "solutions": [
+      {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    ],
+    "starter_code": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

@@ -1,0 +1,1644 @@
+{
+    "prompt2groundtruth": {
+        "You are an expert Python programmer, and here is your task: Given a list of tuples, write a function that returns the first value of the tuple with the smallest second value. Please write a Python function index_minimum(test_list) for the task.\n```python": [
+            [
+                "from operator import itemgetter\n\ndef solution(test_list):\n    res = min(test_list, key=itemgetter(1))[0]\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that checks whether a string contains the 'a' character followed by two or three 'b' characters. Please write a Python function text_match_two_three(text) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(text):\n    patterns = 'ab{2,3}'\n    if re.search(patterns, text):\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that counts the number of pairs of integers in a list that xor to an even number. Please write a Python function find_even_pair(A) for the task.\n```python": [
+            [
+                "def solution(A):\n    count = 0\n    for i in range(0, len(A)):\n        for j in range(i + 1, len(A)):\n            if (A[i] ^ A[j]) % 2 == 0:\n                count += 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that matches a word containing 'z'. Please write a Python function text_match_wordz(text) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(text):\n    patterns = '\\\\w*z.\\\\w*'\n    if re.search(patterns, text):\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that returns integers x and y that satisfy ax + by = n as a tuple, or return None if no solution exists. Please write a Python function find_solution(a, b, n) for the task.\n```python": [
+            [
+                "def solution(a, b, n):\n    i = 0\n    while i * a <= n:\n        if (n - i * a) % b == 0:\n            return (i, (n - i * a) // b)\n        i = i + 1\n    return None",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that returns the perimeter of a square given its side length as input. Please write a Python function square_perimeter(a) for the task.\n```python": [
+            [
+                "def solution(a):\n    perimeter = 4 * a\n    return perimeter",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes an array and finds the maximum sum of a bitonic subsequence for the given array, where a sequence is bitonic if it is first increasing and then decreasing. Please write a Python function max_sum(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    MSIBS = arr[:]\n    for i in range(len(arr)):\n        for j in range(0, i):\n            if arr[i] > arr[j] and MSIBS[i] < MSIBS[j] + arr[i]:\n                MSIBS[i] = MSIBS[j] + arr[i]\n    MSDBS = arr[:]\n    for i in range(1, len(arr) + 1):\n        for j in range(1, i):\n            if arr[-i] > arr[-j] and MSDBS[-i] < MSDBS[-j] + arr[-i]:\n                MSDBS[-i] = MSDBS[-j] + arr[-i]\n    solution = float('-Inf')\n    for (i, j, k) in zip(MSIBS, MSDBS, arr):\n        solution = max(solution, i + j - k)\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a dictionary and integer n and filters the dictionary to only include entries with values greater than or equal to n. Please write a Python function dict_filter(dict,n) for the task.\n```python": [
+            [
+                "def solution(dict, n):\n    result = {key: value for (key, value) in dict.items() if value >= n}\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an element and inserts the element before each element in the list, and returns the resulting list. Please write a Python function insert_element(list,element) for the task.\n```python": [
+            [
+                "def solution(list, element):\n    list = [v for elt in list for v in (element, elt)]\n    return list",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer L and splits the given list into two parts where the length of the first part of the list is L, and returns the resulting lists in a tuple. Please write a Python function split_two_parts(list1, L) for the task.\n```python": [
+            [
+                "def solution(list1, L):\n    return (list1[:L], list1[L:])",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer n and returns a list containing the n largest items from the list. Please write a Python function larg_nnum(list1,n) for the task.\n```python": [
+            [
+                "import heapq\n\ndef solution(list1, n):\n    largest = heapq.nlargest(n, list1)\n    return largest",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer n and splits a list for every nth element, returning a list of the resulting lists. Please write a Python function list_split(S, step) for the task.\n```python": [
+            [
+                "def solution(S, step):\n    return [S[i::step] for i in range(step)]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and element and checks whether all items in the list are equal to the given element. Please write a Python function check_element(list,element) for the task.\n```python": [
+            [
+                "def solution(list, element):\n    solution = all((v == element for v in list))\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and length n, and generates all combinations (with repetition) of the elements of the list and returns a list with a tuple for each combination. Please write a Python function combinations_colors(l, n) for the task.\n```python": [
+            [
+                "from itertools import combinations_with_replacement\n\ndef solution(l, n):\n    return list(combinations_with_replacement(l, n))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list of tuples and returns a list containing the rear element of each tuple. Please write a Python function rear_extract(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    res = [lis[-1] for lis in test_list]\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a sorted array, its length (n), and an element and returns whether the element is the majority element in the given sorted array. (The majority element is the element that occurs more than n/2 times.) Please write a Python function is_majority(arr, n, x) for the task.\n```python": [
+            [
+                "def solution(arr, n, x):\n    i = binary_search(arr, 0, n - 1, x)\n    if i == -1:\n        return False\n    if i + n // 2 <= n - 1 and arr[i + n // 2] == x:\n        return True\n    else:\n        return False\n\ndef binary_search(arr, low, high, x):\n    if high >= low:\n        mid = (low + high) // 2\n        if (mid == 0 or x > arr[mid - 1]) and arr[mid] == x:\n            return mid\n        elif x > arr[mid]:\n            return binary_search(arr, mid + 1, high, x)\n        else:\n            return binary_search(arr, low, mid - 1, x)\n    return -1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a string and character, replaces blank spaces in the string with the character, and returns the string. Please write a Python function replace_blank(str1,char) for the task.\n```python": [
+            [
+                "def solution(str1, char):\n    str2 = str1.replace(' ', char)\n    return str2",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved. Please write a Python function re_arrange_array(arr, n) for the task.\n```python": [
+            [
+                "def solution(arr, n):\n    j = 0\n    for i in range(0, n):\n        if arr[i] < 0:\n            temp = arr[i]\n            arr[i] = arr[j]\n            arr[j] = temp\n            j = j + 1\n    return arr",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in an array and element and returns a tuple containing a boolean that indicates if the element is in the array and the index position of the element (or -1 if the element is not found). Please write a Python function sequential_search(dlist, item) for the task.\n```python": [
+            [
+                "def solution(dlist, item):\n    pos = 0\n    found = False\n    while pos < len(dlist) and (not found):\n        if dlist[pos] == item:\n            found = True\n        else:\n            pos = pos + 1\n    return (found, pos)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in positive integers m and n and finds the number of possible sequences of length n, such that each element is a positive integer and is greater than or equal to twice the previous element but less than or equal to m. Please write a Python function get_total_number_of_sequences(m,n) for the task.\n```python": [
+            [
+                "def solution(m, n):\n    T = [[0 for i in range(n + 1)] for i in range(m + 1)]\n    for i in range(m + 1):\n        for j in range(n + 1):\n            if i == 0 or j == 0:\n                T[i][j] = 0\n            elif i < j:\n                T[i][j] = 0\n            elif j == 1:\n                T[i][j] = i\n            else:\n                T[i][j] = T[i - 1][j] + T[i // 2][j - 1]\n    return T[m][n]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in the radius and height of a cylinder and returns the the volume. Please write a Python function volume_cylinder(r,h) for the task.\n```python": [
+            [
+                "def solution(r, h):\n    volume = 3.1415 * r * r * h\n    return volume",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two lists and replaces the last element of the first list with the elements of the second list. Please write a Python function replace_list(list1,list2) for the task.\n```python": [
+            [
+                "def solution(list1, list2):\n    list1[-1:] = list2\n    solution = list1\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two numbers and returns a tuple with the second number and then the first number. Please write a Python function swap_numbers(a,b) for the task.\n```python": [
+            [
+                "def solution(a, b):\n    temp = a\n    a = b\n    b = temp\n    return (a, b)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two tuples and performs mathematical division operation element-wise across the given tuples. Please write a Python function division_elements(test_tup1, test_tup2) for the task.\n```python": [
+            [
+                "def solution(test_tup1, test_tup2):\n    res = tuple((ele1 // ele2 for (ele1, ele2) in zip(test_tup1, test_tup2)))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two tuples and subtracts the elements of the first tuple by the elements of the second tuple with the same index. Please write a Python function substract_elements(test_tup1, test_tup2) for the task.\n```python": [
+            [
+                "def solution(test_tup1, test_tup2):\n    res = tuple(map(lambda i, j: i - j, test_tup1, test_tup2))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function that takes two lists and returns true if they have at least one common element. Please write a Python function common_element(list1, list2) for the task.\n```python": [
+            [
+                "def solution(list1, list2):\n    result = False\n    for x in list1:\n        for y in list2:\n            if x == y:\n                result = True\n                return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to append the given list to the given tuples. Please write a Python function add_lists(test_list, test_tup) for the task.\n```python": [
+            [
+                "def solution(test_list, test_tup):\n    res = tuple(list(test_tup) + test_list)\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to apply a given format string to all of the elements in a list. Please write a Python function add_string(list_, string) for the task.\n```python": [
+            [
+                "def solution(list_, string):\n    solution = [string.format(i) for i in list_]\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate a dog's age in dog's years. Please write a Python function dog_age(h_age) for the task.\n```python": [
+            [
+                "def solution(h_age):\n    if h_age < 0:\n        exit()\n    elif h_age <= 2:\n        d_age = h_age * 10.5\n    else:\n        d_age = 21 + (h_age - 2) * 4\n    return d_age",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the maximum aggregate from the list of tuples. Please write a Python function max_aggregate(stdata) for the task.\n```python": [
+            [
+                "from collections import defaultdict\n\ndef solution(stdata):\n    temp = defaultdict(int)\n    for (name, marks) in stdata:\n        temp[name] += marks\n    return max(temp.items(), key=lambda x: x[1])",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum (n - 2*i) from i=0 to n // 2, for instance n + (n-2) + (n-4)... (until n-x =< 0). Please write a Python function sum_series(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n < 1:\n        return 0\n    else:\n        return n + solution(n - 2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum of perrin numbers. Please write a Python function cal_sum(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    a = 3\n    b = 0\n    c = 2\n    if n == 0:\n        return 3\n    if n == 1:\n        return 3\n    if n == 2:\n        return 5\n    sum = 5\n    while n > 2:\n        d = a + b\n        sum = sum + d\n        a = b\n        b = c\n        c = d\n        n = n - 1\n    return sum",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum of the negative numbers of a given list of numbers. Please write a Python function sum_negativenum(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    solution = list(filter(lambda nums: nums < 0, nums))\n    return sum(solution)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the value of 'a' to the power 'b'. Please write a Python function power(a,b) for the task.\n```python": [
+            [
+                "def solution(a, b):\n    if b == 0:\n        return 1\n    elif a == 0:\n        return 0\n    elif b == 1:\n        return a\n    else:\n        return a * solution(a, b - 1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to calculate whether the matrix is a magic square. Please write a Python function magic_square_test(my_matrix) for the task.\n```python": [
+            [
+                "def solution(my_matrix):\n    iSize = len(my_matrix[0])\n    sum_list = []\n    sum_list.extend([sum(lines) for lines in my_matrix])\n    for col in range(iSize):\n        sum_list.append(sum((row[col] for row in my_matrix)))\n    result1 = 0\n    for i in range(0, iSize):\n        result1 += my_matrix[i][i]\n    sum_list.append(result1)\n    result2 = 0\n    for i in range(iSize - 1, -1, -1):\n        result2 += my_matrix[i][i]\n    sum_list.append(result2)\n    if len(set(sum_list)) > 1:\n        return False\n    return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check if a string is present as a substring in a given list of string values. Please write a Python function find_substring(str1, sub_str) for the task.\n```python": [
+            [
+                "def solution(str1, sub_str):\n    if any((sub_str in s for s in str1)):\n        return True\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check if a string represents an integer or not. Please write a Python function check_integer(text) for the task.\n```python": [
+            [
+                "def solution(text):\n    text = text.strip()\n    if len(text) < 1:\n        return None\n    elif all((text[i] in '0123456789' for i in range(len(text)))):\n        return True\n    elif text[0] in '+-' and all((text[i] in '0123456789' for i in range(1, len(text)))):\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check if all the elements in tuple have same data type or not. Please write a Python function check_type(test_tuple) for the task.\n```python": [
+            [
+                "def solution(test_tuple):\n    res = True\n    for ele in test_tuple:\n        if not isinstance(ele, type(test_tuple[0])):\n            res = False\n            break\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check if given tuple contains no duplicates. Please write a Python function check_distinct(test_tup) for the task.\n```python": [
+            [
+                "def solution(test_tup):\n    res = True\n    temp = set()\n    for ele in test_tup:\n        if ele in temp:\n            res = False\n            break\n        temp.add(ele)\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check if the given number is woodball or not. Please write a Python function is_woodall(x) for the task.\n```python": [
+            [
+                "def solution(x):\n    if x % 2 == 0:\n        return False\n    if x == 1:\n        return True\n    x = x + 1\n    p = 0\n    while x % 2 == 0:\n        x = x / 2\n        p = p + 1\n        if p == x:\n            return True\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether a list contains the given sublist or not. Please write a Python function is_sublist(l, s) for the task.\n```python": [
+            [
+                "def solution(l, s):\n    sub_set = False\n    if s == []:\n        sub_set = True\n    elif s == l:\n        sub_set = True\n    elif len(s) > len(l):\n        sub_set = False\n    else:\n        for i in range(len(l)):\n            if l[i] == s[0]:\n                n = 1\n                while n < len(s) and l[i + n] == s[n]:\n                    n += 1\n                if n == len(s):\n                    sub_set = True\n    return sub_set",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether all dictionaries in a list are empty or not. Please write a Python function empty_dit(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    solution = all((not d for d in list1))\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether an element exists within a tuple. Please write a Python function check_tuplex(tuplex,tuple1) for the task.\n```python": [
+            [
+                "def solution(tuplex, tuple1):\n    if tuple1 in tuplex:\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether it follows the sequence given in the patterns array. Please write a Python function is_samepatterns(colors, patterns) for the task.\n```python": [
+            [
+                "def solution(colors, patterns):\n    if len(colors) != len(patterns):\n        return False\n    sdict = {}\n    pset = set()\n    sset = set()\n    for i in range(len(patterns)):\n        pset.add(patterns[i])\n        sset.add(colors[i])\n        if patterns[i] not in sdict.keys():\n            sdict[patterns[i]] = []\n        keys = sdict[patterns[i]]\n        keys.append(colors[i])\n        sdict[patterns[i]] = keys\n    if len(pset) != len(sset):\n        return False\n    for values in sdict.values():\n        for i in range(len(values) - 1):\n            if values[i] != values[i + 1]:\n                return False\n    return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the entered number is greater than the elements of the given array. Please write a Python function check_greater(arr, number) for the task.\n```python": [
+            [
+                "def solution(arr, number):\n    arr.sort()\n    return number > arr[-1]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given month number contains 31 days or not. Please write a Python function check_monthnumb_number(monthnum2) for the task.\n```python": [
+            [
+                "def solution(monthnum2):\n    if monthnum2 == 1 or monthnum2 == 3 or monthnum2 == 5 or (monthnum2 == 7) or (monthnum2 == 8) or (monthnum2 == 10) or (monthnum2 == 12):\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given number is undulating or not. Please write a Python function is_undulating(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    n = str(n)\n    if len(n) <= 2:\n        return False\n    for i in range(2, len(n)):\n        if n[i - 2] != n[i]:\n            return False\n    return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given string starts and ends with the same character or not. Please write a Python function check_char(string) for the task.\n```python": [
+            [
+                "import re\nregex = '^[a-z]$|^([a-z]).*\\\\1$'\n\ndef solution(string):\n    if re.search(regex, string):\n        return 'Valid'\n    else:\n        return 'Invalid'",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to compute the sum of digits of each number of a given list. Please write a Python function sum_of_digits(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    return sum((int(el) for n in nums for el in str(n) if el.isdigit()))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to concatenate each element of tuple by the delimiter. Please write a Python function concatenate_tuple(test_tup) for the task.\n```python": [
+            [
+                "def solution(test_tup):\n    delim = '-'\n    res = ''.join([str(ele) + delim for ele in test_tup])\n    res = res[:len(res) - len(delim)]\n    return str(res)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format. Please write a Python function change_date_format(dt) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(dt):\n    return re.sub('(\\\\d{4})-(\\\\d{1,2})-(\\\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a given string to a tuple of characters. Please write a Python function string_to_tuple(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    result = tuple((x for x in str1 if not x.isspace()))\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a given tuple of positive integers into a single integer. Please write a Python function tuple_to_int(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    result = int(''.join(map(str, nums)))\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a snake case string to camel case string. Please write a Python function snake_to_camel(word) for the task.\n```python": [
+            [
+                "def solution(word):\n    import re\n    return ''.join((x.capitalize() or '_' for x in word.split('_')))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a string to a list of strings split on the space character. Please write a Python function string_to_list(string) for the task.\n```python": [
+            [
+                "def solution(string):\n    lst = list(string.split(' '))\n    return lst",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert a tuple to a string. Please write a Python function tup_string(tup1) for the task.\n```python": [
+            [
+                "def solution(tup1):\n    str = ''.join(tup1)\n    return str",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert all possible convertible elements in a list of lists to floats. Please write a Python function list_to_float(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    res = []\n    for tup in test_list:\n        temp = []\n        for ele in tup:\n            if ele.isalpha():\n                temp.append(ele)\n            else:\n                temp.append(float(ele))\n        res.append((temp[0], temp[1]))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert more than one list to nested dictionary. Please write a Python function convert_list_dictionary(l1, l2, l3) for the task.\n```python": [
+            [
+                "def solution(l1, l2, l3):\n    result = [{x: {y: z}} for (x, y, z) in zip(l1, l2, l3)]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to convert the given decimal number to its binary equivalent, represented as a string with no leading zeros. Please write a Python function decimal_to_binary(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return bin(n).replace('0b', '')",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count bidirectional tuple pairs. Please write a Python function count_bidirectional(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    res = 0\n    for idx in range(0, len(test_list)):\n        for iidx in range(idx + 1, len(test_list)):\n            if test_list[iidx][0] == test_list[idx][1] and test_list[idx][1] == test_list[iidx][0]:\n                res += 1\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count number items that are identical in the same position of three given lists. Please write a Python function count_samepair(list1,list2,list3) for the task.\n```python": [
+            [
+                "def solution(list1, list2, list3):\n    result = sum((m == n == o for (m, n, o) in zip(list1, list2, list3)))\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of characters in a string that occur at the same position in the string as in the English alphabet (case insensitive). Please write a Python function count_char_position(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    count_chars = 0\n    for i in range(len(str1)):\n        if i == ord(str1[i]) - ord('A') or i == ord(str1[i]) - ord('a'):\n            count_chars += 1\n    return count_chars",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of occurence of the string 'std' in a given string. Please write a Python function count_occurance(s) for the task.\n```python": [
+            [
+                "def solution(s):\n    count = 0\n    for i in range(len(s) - 2):\n        if s[i] == 's' and s[i + 1] == 't' and (s[i + 2] == 'd'):\n            count = count + 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of occurrences of a number in a given list. Please write a Python function frequency(a,x) for the task.\n```python": [
+            [
+                "def solution(a, x):\n    count = 0\n    for i in a:\n        if i == x:\n            count += 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of sublists containing a particular element. Please write a Python function count_element_in_list(list1, x) for the task.\n```python": [
+            [
+                "def solution(list1, x):\n    ctr = 0\n    for i in range(len(list1)):\n        if x in list1[i]:\n            ctr += 1\n    return ctr",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to count the total number of characters in a string. Please write a Python function count_charac(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    total = 0\n    for i in str1:\n        total = total + 1\n    return total",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to create the next bigger number by rearranging the digits of a given number. Please write a Python function rearrange_bigger(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    nums = list(str(n))\n    for i in range(len(nums) - 2, -1, -1):\n        if nums[i] < nums[i + 1]:\n            z = nums[i:]\n            y = min(filter(lambda x: x > z[0], z))\n            z.remove(y)\n            z.sort()\n            nums[i:] = [y] + z\n            return int(''.join(nums))\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to determine if the sum of the divisors of two integers are the same. Please write a Python function are_equivalent(num1, num2) for the task.\n```python": [
+            [
+                "import math\n\ndef div_sum(n):\n    total = 1\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            total = total + i + math.floor(n / i)\n        i += 1\n    return total\n\ndef solution(num1, num2):\n    return div_sum(num1) == div_sum(num2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to drop empty items from a given dictionary. Please write a Python function drop_empty(dict1) for the task.\n```python": [
+            [
+                "def solution(dict1):\n    dict1 = {key: value for (key, value) in dict1.items() if value is not None}\n    return dict1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to extract only the rear index element of each string in the given tuple. Please write a Python function extract_rear(test_tuple) for the task.\n```python": [
+            [
+                "def solution(test_tuple):\n    res = list((sub[len(sub) - 1] for sub in test_tuple))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to extract specified size of strings from a given list of string values. Please write a Python function extract_string(str, l) for the task.\n```python": [
+            [
+                "def solution(str, l):\n    result = [e for e in str if len(e) == l]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to extract the elementwise and tuples from the given two tuples. Please write a Python function and_tuples(test_tup1, test_tup2) for the task.\n```python": [
+            [
+                "def solution(test_tup1, test_tup2):\n    res = tuple((ele1 & ele2 for (ele1, ele2) in zip(test_tup1, test_tup2)))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to extract the nth element from a given list of tuples. Please write a Python function extract_nth_element(list1, n) for the task.\n```python": [
+            [
+                "def solution(list1, n):\n    result = [x[n] for x in list1]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to extract the number of unique tuples in the given list. Please write a Python function extract_freq(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    res = len(list(set((tuple(sorted(sub)) for sub in test_list))))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to filter odd numbers. Please write a Python function filter_oddnumbers(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    odd_nums = list(filter(lambda x: x % 2 != 0, nums))\n    return odd_nums",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find all possible combinations of the elements of a given list. Please write a Python function combinations_list(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    if len(list1) == 0:\n        return [[]]\n    result = []\n    for el in solution(list1[1:]):\n        result += [el, el + [list1[0]]]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find cubes of individual elements in a list. Please write a Python function cube_nums(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    solution = list(map(lambda x: x ** 3, nums))\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find minimum of three numbers. Please write a Python function min_of_three(a,b,c) for the task.\n```python": [
+            [
+                "def solution(a, b, c):\n    if a <= b and a <= c:\n        smallest = a\n    elif b <= a and b <= c:\n        smallest = b\n    else:\n        smallest = c\n    return smallest",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find nth centered hexagonal number. Please write a Python function centered_hexagonal_number(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return 3 * n * (n - 1) + 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find number of lists present in the given tuple. Please write a Python function find_lists(Input) for the task.\n```python": [
+            [
+                "def solution(Input):\n    if isinstance(Input, list):\n        return 1\n    else:\n        return len(Input)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the Eulerian number a(n, m). Please write a Python function eulerian_num(n, m) for the task.\n```python": [
+            [
+                "def solution(n, m):\n    if m >= n or n == 0:\n        return 0\n    if m == 0:\n        return 1\n    return (n - m) * solution(n - 1, m - 1) + (m + 1) * solution(n - 1, m)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the area of a rectangle. Please write a Python function rectangle_area(l,b) for the task.\n```python": [
+            [
+                "def solution(l, b):\n    area = l * b\n    return area",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the ascii value of a character. Please write a Python function ascii_value(k) for the task.\n```python": [
+            [
+                "def solution(k):\n    ch = k\n    return ord(ch)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the circumference of a circle. Please write a Python function circle_circumference(r) for the task.\n```python": [
+            [
+                "def solution(r):\n    perimeter = 2 * 3.1415 * r\n    return perimeter",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the closest smaller number than n. Please write a Python function closest_num(N) for the task.\n```python": [
+            [
+                "def solution(N):\n    return N - 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the common elements in given nested lists. Please write a Python function common_in_nested_lists(nestedlist) for the task.\n```python": [
+            [
+                "def solution(nestedlist):\n    result = list(set.intersection(*map(set, nestedlist)))\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the count of all binary sequences of length 2n such that sum of first n bits is same as sum of last n bits. Please write a Python function count_binary_seq(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    nCr = 1\n    res = 1\n    for r in range(1, n + 1):\n        nCr = nCr * (n + 1 - r) / r\n        res += nCr * nCr\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the depth of a dictionary. Please write a Python function dict_depth(d) for the task.\n```python": [
+            [
+                "def solution(d):\n    if isinstance(d, dict):\n        return 1 + (max(map(solution, d.values())) if d else 0)\n    return 0",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the directrix of a parabola. Please write a Python function parabola_directrix(a, b, c) for the task.\n```python": [
+            [
+                "def solution(a, b, c):\n    directrix = int(c - (b * b + 1) * 4 * a)\n    return directrix",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the first adverb and their positions in a given sentence. Please write a Python function find_adverb_position(text) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(text):\n    for m in re.finditer('\\\\w+ly', text):\n        return (m.start(), m.end(), m.group(0))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the intersection of two arrays. Please write a Python function intersection_array(array_nums1,array_nums2) for the task.\n```python": [
+            [
+                "def solution(array_nums1, array_nums2):\n    result = list(filter(lambda x: x in array_nums1, array_nums2))\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the item with maximum frequency in a given list. Please write a Python function max_occurrences(nums) for the task.\n```python": [
+            [
+                "from collections import defaultdict\n\ndef solution(nums):\n    dict = defaultdict(int)\n    for i in nums:\n        dict[i] += 1\n    result = max(dict.items(), key=lambda x: x[1])\n    return result[0]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the kth element in the given array using 1-based indexing. Please write a Python function kth_element(arr, k) for the task.\n```python": [
+            [
+                "def solution(arr, k):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                (arr[j], arr[j + 1] == arr[j + 1], arr[j])\n    return arr[k - 1]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the largest sum of a contiguous array in the modified array which is formed by repeating the given array k times. Please write a Python function max_sub_array_sum_repeated(a, n, k) for the task.\n```python": [
+            [
+                "def solution(a, n, k):\n    max_so_far = -2147483648\n    max_ending_here = 0\n    for i in range(n * k):\n        max_ending_here = max_ending_here + a[i % n]\n        if max_so_far < max_ending_here:\n            max_so_far = max_ending_here\n        if max_ending_here < 0:\n            max_ending_here = 0\n    return max_so_far",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the lateral surface area of a cube given its side length. Please write a Python function lateralsurface_cube(l) for the task.\n```python": [
+            [
+                "def solution(l):\n    LSA = 4 * (l * l)\n    return LSA",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the lateral surface area of a cylinder. Please write a Python function lateralsuface_cylinder(r,h) for the task.\n```python": [
+            [
+                "def solution(r, h):\n    lateralsurface = 2 * 3.1415 * r * h\n    return lateralsurface",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the length of the longest palindromic subsequence in the given string. Please write a Python function lps(str) for the task.\n```python": [
+            [
+                "def solution(str):\n    n = len(str)\n    L = [[0 for x in range(n)] for x in range(n)]\n    for i in range(n):\n        L[i][i] = 1\n    for cl in range(2, n + 1):\n        for i in range(n - cl + 1):\n            j = i + cl - 1\n            if str[i] == str[j] and cl == 2:\n                L[i][j] = 2\n            elif str[i] == str[j]:\n                L[i][j] = L[i + 1][j - 1] + 2\n            else:\n                L[i][j] = max(L[i][j - 1], L[i + 1][j])\n    return L[0][n - 1]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the list of maximum length in a list of lists. Please write a Python function max_length(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    solution = max((len(x) for x in list1))\n    max_list = max((x for x in list1))\n    return (solution, max_list)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum absolute product between numbers in pairs of tuples within a given list. Please write a Python function max_product_tuple(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    result_max = max([abs(x * y) for (x, y) in list1])\n    return result_max",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum difference between available pairs in the given tuple list. Please write a Python function max_difference(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    temp = [abs(b - a) for (a, b) in test_list]\n    res = max(temp)\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string. Please write a Python function find_length(string) for the task.\n```python": [
+            [
+                "def solution(string):\n    n = len(string)\n    current_sum = 0\n    max_sum = 0\n    for i in range(n):\n        current_sum += 1 if string[i] == '0' else -1\n        if current_sum < 0:\n            current_sum = 0\n        max_sum = max(current_sum, max_sum)\n    return max_sum if max_sum else 0",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array. Please write a Python function max_product(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    n = len(arr)\n    mpis = arr[:]\n    for i in range(n):\n        current_prod = arr[i]\n        j = i + 1\n        while j < n:\n            if arr[j - 1] > arr[j]:\n                break\n            current_prod *= arr[j]\n            if current_prod > mpis[j]:\n                mpis[j] = current_prod\n            j = j + 1\n    return max(mpis)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum product subarray of the given array. Please write a Python function max_subarray_product(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    n = len(arr)\n    max_ending_here = 1\n    min_ending_here = 1\n    max_so_far = 0\n    flag = 0\n    for i in range(0, n):\n        if arr[i] > 0:\n            max_ending_here = max_ending_here * arr[i]\n            min_ending_here = min(min_ending_here * arr[i], 1)\n            flag = 1\n        elif arr[i] == 0:\n            max_ending_here = 1\n            min_ending_here = 1\n        else:\n            temp = max_ending_here\n            max_ending_here = max(min_ending_here * arr[i], 1)\n            min_ending_here = temp * arr[i]\n        if max_so_far < max_ending_here:\n            max_so_far = max_ending_here\n    if flag == 0 and max_so_far == 0:\n        return 0\n    return max_so_far",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum sum of increasing subsequence from prefix until ith index and also including a given kth element which is after i, i.e., k > i . Please write a Python function max_sum_increasing_subseq(a, n, index, k) for the task.\n```python": [
+            [
+                "def solution(a, n, index, k):\n    dp = [[0 for i in range(n)] for i in range(n)]\n    for i in range(n):\n        if a[i] > a[0]:\n            dp[0][i] = a[i] + a[0]\n        else:\n            dp[0][i] = a[i]\n    for i in range(1, n):\n        for j in range(n):\n            if a[j] > a[i] and j > i:\n                if dp[i - 1][i] + a[j] > dp[i - 1][j]:\n                    dp[i][j] = dp[i - 1][i] + a[j]\n                else:\n                    dp[i][j] = dp[i - 1][j]\n            else:\n                dp[i][j] = dp[i - 1][j]\n    return dp[index][k]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum sum possible by using the given equation f(n) = max( (f(n/2) + f(n/3) + f(n/4) + f(n/5)), n). Please write a Python function get_max_sum (n) for the task.\n```python": [
+            [
+                "def solution(n):\n    res = list()\n    res.append(0)\n    res.append(1)\n    i = 2\n    while i < n + 1:\n        res.append(max(i, res[int(i / 2)] + res[int(i / 3)] + res[int(i / 4)] + res[int(i / 5)]))\n        i = i + 1\n    return res[n]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum value in a given heterogeneous list. Please write a Python function max_val(listval) for the task.\n```python": [
+            [
+                "def solution(listval):\n    solution = max((i for i in listval if isinstance(i, int)))\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the median length of a trapezium. Please write a Python function median_trapezium(base1,base2,height) for the task.\n```python": [
+            [
+                "def solution(base1, base2, height):\n    median = 0.5 * (base1 + base2)\n    return median",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the median of three numbers. Please write a Python function median_numbers(a,b,c) for the task.\n```python": [
+            [
+                "def solution(a, b, c):\n    if a > b:\n        if a < c:\n            median = a\n        elif b > c:\n            median = b\n        else:\n            median = c\n    elif a > c:\n        median = a\n    elif b < c:\n        median = b\n    else:\n        median = c\n    return median",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the minimum product from the pairs of tuples within a given list. Please write a Python function min_product_tuple(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    result_min = min([abs(x * y) for (x, y) in list1])\n    return result_min",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the minimum value in a given heterogeneous list. Please write a Python function min_val(listval) for the task.\n```python": [
+            [
+                "def solution(listval):\n    solution = min((i for i in listval if isinstance(i, int)))\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the n'th lucas number. Please write a Python function find_lucas(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n == 0:\n        return 2\n    if n == 1:\n        return 1\n    return solution(n - 1) + solution(n - 2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the n'th star number. Please write a Python function find_star_num(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return 6 * n * (n - 1) + 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the next smallest palindrome of a specified integer, returned as an integer. Please write a Python function next_smallest_palindrome(num) for the task.\n```python": [
+            [
+                "import sys\n\ndef solution(num):\n    numstr = str(num)\n    for i in range(num + 1, sys.maxsize):\n        if str(i) == str(i)[::-1]:\n            return i",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth decagonal number. Please write a Python function is_num_decagonal(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return 4 * n * n - 3 * n",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth hexagonal number. Please write a Python function hexagonal_num(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return n * (2 * n - 1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth newman\u2013shanks\u2013williams prime number. Please write a Python function newman_prime(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n == 0 or n == 1:\n        return 1\n    return 2 * solution(n - 1) + solution(n - 2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth number in the newman conway sequence. Please write a Python function sequence(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n == 1 or n == 2:\n        return 1\n    else:\n        return solution(solution(n - 1)) + solution(n - solution(n - 1))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth octagonal number. Please write a Python function is_octagonal(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return 3 * n * n - 2 * n",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth tetrahedral number. Please write a Python function tetrahedral_number(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return n * (n + 1) * (n + 2) / 6",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the number of elements that occurs before the tuple element in the given tuple. Please write a Python function count_first_elements(test_tup) for the task.\n```python": [
+            [
+                "def solution(test_tup):\n    for (count, ele) in enumerate(test_tup):\n        if isinstance(ele, tuple):\n            break\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the number of ways to partition a set of Bell numbers. Please write a Python function bell_number(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    bell = [[0 for i in range(n + 1)] for j in range(n + 1)]\n    bell[0][0] = 1\n    for i in range(1, n + 1):\n        bell[i][0] = bell[i - 1][i - 1]\n        for j in range(1, i + 1):\n            bell[i][j] = bell[i - 1][j - 1] + bell[i][j - 1]\n    return bell[n][0]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the pairwise addition of the neighboring elements of the given tuple. Please write a Python function add_pairwise(test_tup) for the task.\n```python": [
+            [
+                "def solution(test_tup):\n    res = tuple((i + j for (i, j) in zip(test_tup, test_tup[1:])))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the perimeter of a regular pentagon from the length of its sides. Please write a Python function perimeter_pentagon(a) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(a):\n    perimeter = 5 * a\n    return perimeter",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the ratio of zeroes to non-zeroes in an array of integers. Please write a Python function zero_count(nums) for the task.\n```python": [
+            [
+                "from array import array\n\ndef solution(nums):\n    n = len(nums)\n    n1 = 0\n    for x in nums:\n        if x == 0:\n            n1 += 1\n        else:\n            None\n    return n1 / (n - n1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the ration of positive numbers in an array of integers. Please write a Python function positive_count(nums) for the task.\n```python": [
+            [
+                "from array import array\n\ndef solution(nums):\n    n = len(nums)\n    n1 = 0\n    for x in nums:\n        if x > 0:\n            n1 += 1\n        else:\n            None\n    return round(n1 / n, 2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the specified number of largest products from two given lists, selecting one factor from each list. Please write a Python function large_product(nums1, nums2, N) for the task.\n```python": [
+            [
+                "def solution(nums1, nums2, N):\n    result = sorted([x * y for x in nums1 for y in nums2], reverse=True)[:N]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the sum of numbers in a list within a range specified by two indices. Please write a Python function sum_range_list(list1, m, n) for the task.\n```python": [
+            [
+                "def solution(list1, m, n):\n    sum_range = 0\n    for i in range(m, n + 1, 1):\n        sum_range += list1[i]\n    return sum_range",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the surface area of a cube of a given size. Please write a Python function surfacearea_cube(l) for the task.\n```python": [
+            [
+                "def solution(l):\n    surfacearea = 6 * l * l\n    return surfacearea",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the surface area of a sphere. Please write a Python function surfacearea_sphere(r) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(r):\n    surfacearea = 4 * math.pi * r * r\n    return surfacearea",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the third side of a right angled triangle. Please write a Python function otherside_rightangle(w,h) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(w, h):\n    s = math.sqrt(w * w + h * h)\n    return s",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a cone. Please write a Python function volume_cone(r,h) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(r, h):\n    volume = 1.0 / 3 * math.pi * r * r * h\n    return volume",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a cube given its side length. Please write a Python function volume_cube(l) for the task.\n```python": [
+            [
+                "def solution(l):\n    volume = l * l * l\n    return volume",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a sphere. Please write a Python function volume_sphere(r) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(r):\n    volume = 4 / 3 * math.pi * r * r * r\n    return volume",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find tuples which have all elements divisible by k from the given list of tuples. Please write a Python function find_tuples(test_list, K) for the task.\n```python": [
+            [
+                "def solution(test_list, K):\n    res = [sub for sub in test_list if all((ele % K == 0 for ele in sub))]\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find whether a given array of integers contains any duplicate element. Please write a Python function test_duplicate(arraynums) for the task.\n```python": [
+            [
+                "def solution(arraynums):\n    nums_set = set(arraynums)\n    return len(arraynums) != len(nums_set)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find whether all the given tuples have equal length or not. Please write a Python function get_equal(Input) for the task.\n```python": [
+            [
+                "def find_equal_tuple(Input):\n    k = 0 if not Input else len(Input[0])\n    flag = 1\n    for tuple in Input:\n        if len(tuple) != k:\n            flag = 0\n            break\n    return flag\n\ndef solution(Input):\n    return find_equal_tuple(Input) == 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to find words that are longer than n characters from a given list of words. Please write a Python function long_words(n, str) for the task.\n```python": [
+            [
+                "def solution(n, str):\n    word_len = []\n    txt = str.split(' ')\n    for x in txt:\n        if len(x) > n:\n            word_len.append(x)\n    return word_len",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to flatten a given nested list structure. Please write a Python function flatten_list(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    result_list = []\n    if not list1:\n        return result_list\n    stack = [list(list1)]\n    while stack:\n        c_num = stack.pop()\n        next = c_num.pop()\n        if c_num:\n            stack.append(c_num)\n        if isinstance(next, list):\n            if next:\n                stack.append(list(next))\n        else:\n            result_list.append(next)\n    result_list.reverse()\n    return result_list",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to flatten a list and sum all of its elements. Please write a Python function recursive_list_sum(data_list) for the task.\n```python": [
+            [
+                "def solution(data_list):\n    total = 0\n    for element in data_list:\n        if type(element) == type([]):\n            total = total + solution(element)\n        else:\n            total = total + element\n    return total",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to flatten the list of lists into a single set of numbers. Please write a Python function extract_singly(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    res = []\n    temp = set()\n    for inner in test_list:\n        for ele in inner:\n            if not ele in temp:\n                temp.add(ele)\n                res.append(ele)\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to join a list of multiple integers into a single integer. Please write a Python function multiple_to_single(L) for the task.\n```python": [
+            [
+                "def solution(L):\n    x = int(''.join(map(str, L)))\n    return x",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to maximize the given two tuples. Please write a Python function maximize_elements(test_tup1, test_tup2) for the task.\n```python": [
+            [
+                "def solution(test_tup1, test_tup2):\n    res = tuple((tuple((max(a, b) for (a, b) in zip(tup1, tup2))) for (tup1, tup2) in zip(test_tup1, test_tup2)))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to merge three dictionaries into a single dictionary. Please write a Python function merge_dictionaries_three(dict1,dict2, dict3) for the task.\n```python": [
+            [
+                "import collections as ct\n\ndef solution(dict1, dict2, dict3):\n    merged_dict = dict(ct.ChainMap({}, dict1, dict2, dict3))\n    return merged_dict",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to merge three lists into a single sorted list. Please write a Python function merge_sorted_list(num1,num2,num3) for the task.\n```python": [
+            [
+                "import heapq\n\ndef solution(num1, num2, num3):\n    num1 = sorted(num1)\n    num2 = sorted(num2)\n    num3 = sorted(num3)\n    result = heapq.merge(num1, num2, num3)\n    return list(result)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to multiply all the numbers in a list and divide with the length of the list. Please write a Python function multiply_num(numbers) for the task.\n```python": [
+            [
+                "def solution(numbers):\n    total = 1\n    for x in numbers:\n        total *= x\n    return total / len(numbers)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to multiply two integers. Please write a Python function multiply_int(x, y) for the task.\n```python": [
+            [
+                "def solution(x, y):\n    if y < 0:\n        return -solution(x, -y)\n    elif y == 0:\n        return 0\n    elif y == 1:\n        return x\n    else:\n        return x + solution(x, y - 1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to perform index wise multiplication of tuple elements in the given two tuples. Please write a Python function index_multiplication(test_tup1, test_tup2) for the task.\n```python": [
+            [
+                "def solution(test_tup1, test_tup2):\n    res = tuple((tuple((a * b for (a, b) in zip(tup1, tup2))) for (tup1, tup2) in zip(test_tup1, test_tup2)))\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove all elements from a given list present in another list. Please write a Python function remove_elements(list1, list2) for the task.\n```python": [
+            [
+                "def solution(list1, list2):\n    result = [x for x in list1 if x not in list2]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove all whitespaces from the given string. Please write a Python function remove_whitespaces(text1) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(text1):\n    return re.sub('\\\\s+', '', text1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove characters from the first string which are present in the second string. Please write a Python function remove_dirty_chars(string, second_string) for the task.\n```python": [
+            [
+                "NO_OF_CHARS = 256\n\ndef str_to_list(string):\n    temp = []\n    for x in string:\n        temp.append(x)\n    return temp\n\ndef lst_to_string(List):\n    return ''.join(List)\n\ndef get_char_count_array(string):\n    count = [0] * NO_OF_CHARS\n    for i in string:\n        count[ord(i)] += 1\n    return count\n\ndef solution(string, second_string):\n    count = get_char_count_array(second_string)\n    ip_ind = 0\n    res_ind = 0\n    temp = ''\n    str_list = str_to_list(string)\n    while ip_ind != len(str_list):\n        temp = str_list[ip_ind]\n        if count[ord(temp)] == 0:\n            str_list[res_ind] = str_list[ip_ind]\n            res_ind += 1\n        ip_ind += 1\n    return lst_to_string(str_list[0:res_ind])",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove lowercase substrings from a given string. Please write a Python function remove_lowercase(str1) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(str1):\n    return re.sub('[a-z]', '', str1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove odd characters in a string. Please write a Python function remove_odd(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    str2 = ''\n    for i in range(1, len(str1) + 1):\n        if i % 2 == 0:\n            str2 = str2 + str1[i - 1]\n    return str2",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to remove uppercase substrings from a given string. Please write a Python function remove_uppercase(str1) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(str1):\n    return re.sub('[A-Z]', '', str1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to replace characters in a string. Please write a Python function replace_char(str1,ch,newch) for the task.\n```python": [
+            [
+                "def solution(str1, ch, newch):\n    str2 = str1.replace(ch, newch)\n    return str2",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to return the sum of all divisors of a number. Please write a Python function sum_div(number) for the task.\n```python": [
+            [
+                "def solution(number):\n    divisors = [1]\n    for i in range(2, number):\n        if number % i == 0:\n            divisors.append(i)\n    return sum(divisors)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to return two words from a list of words starting with letter 'p'. Please write a Python function start_withp(words) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(words):\n    for w in words:\n        m = re.match('(P\\\\w+)\\\\W(P\\\\w+)', w)\n        if m:\n            return m.groups()",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to reverse each string in a given list of string values. Please write a Python function reverse_string_list(stringlist) for the task.\n```python": [
+            [
+                "def solution(stringlist):\n    result = [x[::-1] for x in stringlist]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to round every number of a given list of numbers and print the total sum multiplied by the length of the list. Please write a Python function round_and_sum(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    lenght = len(list1)\n    solution = sum(list(map(round, list1)) * lenght)\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort a dictionary by value. Please write a Python function sort_counter(dict1) for the task.\n```python": [
+            [
+                "from collections import Counter\n\ndef solution(dict1):\n    x = Counter(dict1)\n    solution = x.most_common()\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort a given matrix in ascending order according to the sum of its rows. Please write a Python function sort_matrix(M) for the task.\n```python": [
+            [
+                "def solution(M):\n    result = sorted(M, key=sum)\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of elements. Please write a Python function comb_sort(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    shrink_fact = 1.3\n    gaps = len(nums)\n    swapped = True\n    i = 0\n    while gaps > 1 or swapped:\n        gaps = int(float(gaps) / shrink_fact)\n        swapped = False\n        i = 0\n        while gaps + i < len(nums):\n            if nums[i] > nums[i + gaps]:\n                (nums[i], nums[i + gaps]) = (nums[i + gaps], nums[i])\n                swapped = True\n            i += 1\n    return nums",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of elements. Please write a Python function pancake_sort(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    arr_len = len(nums)\n    while arr_len > 1:\n        mi = nums.index(max(nums[0:arr_len]))\n        nums = nums[mi::-1] + nums[mi + 1:len(nums)]\n        nums = nums[arr_len - 1::-1] + nums[arr_len:len(nums)]\n        arr_len -= 1\n    return nums",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of tuples using the second value of each tuple. Please write a Python function subject_marks(subjectmarks) for the task.\n```python": [
+            [
+                "def solution(subjectmarks):\n    subjectmarks.sort(key=lambda x: x[1])\n    return subjectmarks",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort each sublist of strings in a given list of lists. Please write a Python function sort_sublists(input_list) for the task.\n```python": [
+            [
+                "def solution(input_list):\n    result = [sorted(x, key=lambda x: x[0]) for x in input_list]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sort the given array by using shell sort. Please write a Python function shell_sort(my_list) for the task.\n```python": [
+            [
+                "def solution(my_list):\n    gap = len(my_list) // 2\n    while gap > 0:\n        for i in range(gap, len(my_list)):\n            current_item = my_list[i]\n            j = i\n            while j >= gap and my_list[j - gap] > current_item:\n                my_list[j] = my_list[j - gap]\n                j -= gap\n            my_list[j] = current_item\n        gap //= 2\n    return my_list",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to subtract two lists element-wise. Please write a Python function sub_list(nums1,nums2) for the task.\n```python": [
+            [
+                "def solution(nums1, nums2):\n    result = map(lambda x, y: x - y, nums1, nums2)\n    return list(result)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to sum all amicable numbers from 1 to a specified number. Please write a Python function amicable_numbers_sum(limit) for the task.\n```python": [
+            [
+                "def solution(limit):\n    if not isinstance(limit, int):\n        return 'Input is not an integer!'\n    if limit < 1:\n        return 'Input must be bigger than 0!'\n    amicables = set()\n    for num in range(2, limit + 1):\n        if num in amicables:\n            continue\n        sum_fact = sum([fact for fact in range(1, num) if num % fact == 0])\n        sum_fact2 = sum([fact for fact in range(1, sum_fact) if sum_fact % fact == 0])\n        if num == sum_fact2 and num != sum_fact:\n            amicables.add(num)\n            amicables.add(sum_fact2)\n    return sum(amicables)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a function to that returns true if the input string contains sequences of lowercase letters joined with an underscore and false otherwise. Please write a Python function text_lowercase_underscore(text) for the task.\n```python": [
+            [
+                "import re\n\ndef solution(text):\n    patterns = '^[a-z]+_[a-z]+$'\n    if re.search(patterns, text):\n        return True\n    else:\n        return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function takes in an integer and check whether the frequency of each digit in the integer is less than or equal to the digit itself. Please write a Python function validate(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    for i in range(10):\n        temp = n\n        count = 0\n        while temp:\n            if temp % 10 == i:\n                count += 1\n            if count > i:\n                return False\n            temp //= 10\n    return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function takes in an integer n and returns the sum of squares of first n even natural numbers. Please write a Python function square_Sum(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return int(2 * n * (n + 1) * (2 * n + 1) / 3)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that returns the number of integer elements in a given list. Please write a Python function count_integer(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    ctr = 0\n    for i in list1:\n        if isinstance(i, int):\n            ctr = ctr + 1\n    return ctr",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a non-negative number and returns the number of prime numbers less than the given non-negative number. Please write a Python function count_Primes_nums(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    ctr = 0\n    for num in range(n):\n        if num <= 1:\n            continue\n        for i in range(2, num):\n            if num % i == 0:\n                break\n        else:\n            ctr += 1\n    return ctr",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a positive integer n and finds the sum of even index binomial coefficients. Please write a Python function even_binomial_Coeff_Sum( n) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(n):\n    return 1 << n - 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a tuple and an element and counts the occcurences of the element in the tuple. Please write a Python function count_X(tup, x) for the task.\n```python": [
+            [
+                "def solution(tup, x):\n    count = 0\n    for ele in tup:\n        if ele == x:\n            count = count + 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in an integer n and finds the sum of the first n even natural numbers that are raised to the fifth power. Please write a Python function even_Power_Sum(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    sum = 0\n    for i in range(1, n + 1):\n        j = 2 * i\n        sum = sum + j * j * j * j * j\n    return sum",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in an integer n and returns the sum of the squares of the first n odd natural numbers. Please write a Python function square_Sum(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return int(n * (4 * n * n - 1) / 3)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check if a given number is one less than twice its reverse. Please write a Python function check(n) for the task.\n```python": [
+            [
+                "def rev(num):\n    rev_num = 0\n    while num > 0:\n        rev_num = rev_num * 10 + num % 10\n        num = num // 10\n    return rev_num\n\ndef solution(n):\n    return 2 * rev(n) == n + 1",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check if the elements of a given list are unique or not. Please write a Python function all_unique(test_list) for the task.\n```python": [
+            [
+                "def solution(test_list):\n    if len(test_list) > len(set(test_list)):\n        return False\n    return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether any value in a sequence exists in a sequence or not. Please write a Python function overlapping(list1,list2) for the task.\n```python": [
+            [
+                "def solution(list1, list2):\n    for i in range(len(list1)):\n        for j in range(len(list2)):\n            if list1[i] == list2[j]:\n                return True\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given array is monotonic or not. Please write a Python function is_Monotonic(A) for the task.\n```python": [
+            [
+                "def solution(A):\n    return all((A[i] <= A[i + 1] for i in range(len(A) - 1))) or all((A[i] >= A[i + 1] for i in range(len(A) - 1)))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given list contains consecutive numbers or not. Please write a Python function check_Consecutive(l) for the task.\n```python": [
+            [
+                "def solution(l):\n    return sorted(l) == list(range(min(l), max(l) + 1))",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not. Please write a Python function is_Sum_Of_Powers_Of_Two(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n % 2 == 1:\n        return False\n    else:\n        return True",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given number can be represented as the difference of two squares or not. Please write a Python function dif_Square(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n % 4 != 2:\n        return True\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given two integers have opposite sign or not. Please write a Python function opposite_Signs(x,y) for the task.\n```python": [
+            [
+                "def solution(x, y):\n    return x ^ y < 0",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the length of the word is odd or not. Please write a Python function word_len(s) for the task.\n```python": [
+            [
+                "def solution(s):\n    s = s.split(' ')\n    for word in s:\n        if len(word) % 2 != 0:\n            return True\n        else:\n            return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to convert complex numbers to polar coordinates. Please write a Python function convert(numbers) for the task.\n```python": [
+            [
+                "import cmath\n\ndef solution(numbers):\n    num = cmath.polar(numbers)\n    return num",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to convert the given string to lower case. Please write a Python function is_lower(string) for the task.\n```python": [
+            [
+                "def solution(string):\n    return string.lower()",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count inversions in an array. Please write a Python function get_Inv_Count(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    inv_count = 0\n    for i in range(len(arr)):\n        for j in range(i + 1, len(arr)):\n            if arr[i] > arr[j]:\n                inv_count += 1\n    return inv_count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of non-empty substrings of a given string. Please write a Python function number_of_substrings(str) for the task.\n```python": [
+            [
+                "def solution(str):\n    str_len = len(str)\n    return int(str_len * (str_len + 1) / 2)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of positive numbers in a list. Please write a Python function pos_count(list) for the task.\n```python": [
+            [
+                "def solution(list):\n    solution = 0\n    for num in list:\n        if num >= 0:\n            solution += 1\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of set bits (binary digits with value 1) in a given number. Please write a Python function count_Set_Bits(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    count = 0\n    while n:\n        count += n & 1\n        n >>= 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of substrings with the sum of digits equal to their length. Please write a Python function count_Substrings(s) for the task.\n```python": [
+            [
+                "from collections import defaultdict\n\ndef solution(s):\n    n = len(s)\n    (count, sum) = (0, 0)\n    mp = defaultdict(lambda : 0)\n    mp[0] += 1\n    for i in range(n):\n        sum += ord(s[i]) - ord('0')\n        count += mp[sum - (i + 1)]\n        mp[sum - (i + 1)] += 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the occurence of all elements of list in a tuple. Please write a Python function count_Occurrence(tup, lst) for the task.\n```python": [
+            [
+                "from collections import Counter\n\ndef solution(tup, lst):\n    count = 0\n    for item in tup:\n        if item in lst:\n            count += 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count the upper case characters in a given string. Please write a Python function upper_ctr(str) for the task.\n```python": [
+            [
+                "def solution(str):\n    solution = 0\n    for i in range(len(str)):\n        if str[i] >= 'A' and str[i] <= 'Z':\n            solution += 1\n        return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to count true booleans in the given list. Please write a Python function count(lst) for the task.\n```python": [
+            [
+                "def solution(lst):\n    return sum(lst)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find a pair with highest product from a given array of integers. Please write a Python function max_Product(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    arr_len = len(arr)\n    if arr_len < 2:\n        return 'No pairs exists'\n    x = arr[0]\n    y = arr[1]\n    for i in range(0, arr_len):\n        for j in range(i + 1, arr_len):\n            if arr[i] * arr[j] > x * y:\n                x = arr[i]\n                y = arr[j]\n    return (x, y)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find quotient of two numbers (rounded down to the nearest integer). Please write a Python function find(n,m) for the task.\n```python": [
+            [
+                "def solution(n, m):\n    q = n // m\n    return q",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find smallest number in a list. Please write a Python function smallest_num(xs) for the task.\n```python": [
+            [
+                "def solution(xs):\n    return min(xs)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the average of cubes of first n natural numbers. Please write a Python function find_Average_Of_Cube(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    sum = 0\n    for i in range(1, n + 1):\n        sum += i * i * i\n    return round(sum / n, 6)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the character made by adding the ASCII value of all the characters of the given string modulo 26. Please write a Python function get_Char(strr) for the task.\n```python": [
+            [
+                "def solution(strr):\n    summ = 0\n    for i in range(len(strr)):\n        summ += ord(strr[i]) - ord('a') + 1\n    if summ % 26 == 0:\n        return ord('z')\n    else:\n        summ = summ % 26\n        return chr(ord('a') + summ - 1)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the cube sum of first n even natural numbers. Please write a Python function cube_Sum(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    sum = 0\n    for i in range(1, n + 1):\n        sum += 2 * i * (2 * i) * (2 * i)\n    return sum",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the element of a list having maximum length. Please write a Python function Find_Max(lst) for the task.\n```python": [
+            [
+                "def solution(lst):\n    maxList = max((x for x in lst))\n    return maxList",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the element that appears only once in a sorted array. Please write a Python function search(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    n = len(arr)\n    XOR = 0\n    for i in range(n):\n        XOR = XOR ^ arr[i]\n    return XOR",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the first digit of a given number. Please write a Python function first_Digit(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    while n >= 10:\n        n = n / 10\n    return int(n)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the first non-repeated character in a given string. Please write a Python function first_non_repeating_character(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    char_order = []\n    ctr = {}\n    for c in str1:\n        if c in ctr:\n            ctr[c] += 1\n        else:\n            ctr[c] = 1\n            char_order.append(c)\n    for c in char_order:\n        if ctr[c] == 1:\n            return c\n    return None",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the highest power of 2 that is less than or equal to n. Please write a Python function highest_Power_of_2(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    res = 0\n    for i in range(n, 0, -1):\n        if i & i - 1 == 0:\n            res = i\n            break\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the largest number that can be formed with the given list of digits. Please write a Python function find_Max_Num(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    n = len(arr)\n    arr.sort(reverse=True)\n    num = arr[0]\n    for i in range(1, n):\n        num = num * 10 + arr[i]\n    return num",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the last digit of a given number. Please write a Python function last_Digit(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return n % 10",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the length of the longest word. Please write a Python function len_log(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    max = len(list1[0])\n    for i in list1:\n        if len(i) > max:\n            max = len(i)\n    return max",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the length of the smallest list in a list of lists. Please write a Python function Find_Min_Length(lst) for the task.\n```python": [
+            [
+                "def solution(lst):\n    minLength = min((len(x) for x in lst))\n    return minLength",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the maximum difference between any two elements in a given array. Please write a Python function max_Abs_Diff(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    n = len(arr)\n    minEle = arr[0]\n    maxEle = arr[0]\n    for i in range(1, n):\n        minEle = min(minEle, arr[i])\n        maxEle = max(maxEle, arr[i])\n    return maxEle - minEle",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the maximum of two numbers. Please write a Python function maximum(a,b) for the task.\n```python": [
+            [
+                "def solution(a, b):\n    if a >= b:\n        return a\n    else:\n        return b",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the minimum of two numbers. Please write a Python function minimum(a,b) for the task.\n```python": [
+            [
+                "def solution(a, b):\n    if a <= b:\n        return a\n    else:\n        return b",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the next perfect square greater than a given number. Please write a Python function next_Perfect_Square(N) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(N):\n    nextN = math.floor(math.sqrt(N)) + 1\n    return nextN * nextN",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the number of divisors of a given integer. Please write a Python function divisor(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    for i in range(n):\n        x = len([i for i in range(1, n + 1) if not n % i])\n    return x",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the number of numbers with an odd value when rotating a binary string the given number of times. Please write a Python function odd_Equivalent(s,n) for the task.\n```python": [
+            [
+                "def solution(s, n):\n    count = 0\n    for i in range(0, n):\n        if s[i] == '1':\n            count = count + 1\n    return count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the product of the array multiplication modulo n. Please write a Python function find_remainder(arr, n) for the task.\n```python": [
+            [
+                "def solution(arr, n):\n    mul = 1\n    for i in range(len(arr)):\n        mul = mul * (arr[i] % n) % n\n    return mul % n",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the smallest power of 2 greater than or equal to n. Please write a Python function next_power_of_2(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if n and (not n & n - 1):\n        return n\n    count = 0\n    while n != 0:\n        n >>= 1\n        count += 1\n    return 1 << count",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sublist having minimum length. Please write a Python function Find_Min(lst) for the task.\n```python": [
+            [
+                "def solution(lst):\n    return min(lst, key=len)",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of common divisors of two given numbers. Please write a Python function sum(a,b) for the task.\n```python": [
+            [
+                "def solution(a, b):\n    solution = 0\n    for i in range(1, min(a, b)):\n        if a % i == 0 and b % i == 0:\n            solution += i\n    return solution",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of even factors of a number. Please write a Python function sumofFactors(n) for the task.\n```python": [
+            [
+                "import math\n\ndef solution(n):\n    if n % 2 != 0:\n        return 0\n    res = 1\n    for i in range(2, int(math.sqrt(n)) + 1):\n        count = 0\n        curr_sum = 1\n        curr_term = 1\n        while n % i == 0:\n            count = count + 1\n            n = n // i\n            if i == 2 and count == 1:\n                curr_sum = 0\n            curr_term = curr_term * i\n            curr_sum = curr_sum + curr_term\n        res = res * curr_sum\n    if n >= 2:\n        res = res * (1 + n)\n    return res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of even numbers at even positions of a list. Please write a Python function sum_even_and_even_index(arr) for the task.\n```python": [
+            [
+                "def solution(arr):\n    i = 0\n    sum = 0\n    for i in range(0, len(arr), 2):\n        if arr[i] % 2 == 0:\n            sum += arr[i]\n    return sum",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of the largest and smallest value in a given array. Please write a Python function big_sum(nums) for the task.\n```python": [
+            [
+                "def solution(nums):\n    sum = max(nums) + min(nums)\n    return sum",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find the volume of a triangular prism. Please write a Python function find_Volume(l,b,h) for the task.\n```python": [
+            [
+                "def solution(l, b, h):\n    return l * b * h / 2",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find whether a number is divisible by 11. Please write a Python function is_Diff(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    return n % 11 == 0",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to find whether the parity of a given number is odd. Please write a Python function find_Parity(x) for the task.\n```python": [
+            [
+                "def solution(x):\n    y = x ^ x >> 1\n    y = y ^ y >> 2\n    y = y ^ y >> 4\n    y = y ^ y >> 8\n    y = y ^ y >> 16\n    if y & 1:\n        return True\n    return False",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to get the first element of each sublist. Please write a Python function Extract(lst) for the task.\n```python": [
+            [
+                "def solution(lst):\n    return [item[0] for item in lst]",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to remove first and last occurrence of a given character from the string. Please write a Python function remove_Occ(s,ch) for the task.\n```python": [
+            [
+                "def solution(s, ch):\n    for i in range(len(s)):\n        if s[i] == ch:\n            s = s[0:i] + s[i + 1:]\n            break\n    for i in range(len(s) - 1, -1, -1):\n        if s[i] == ch:\n            s = s[0:i] + s[i + 1:]\n            break\n    return s",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to remove odd numbers from a given list. Please write a Python function remove_odd(l) for the task.\n```python": [
+            [
+                "def solution(l):\n    for i in l:\n        if i % 2 != 0:\n            l.remove(i)\n    return l",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to remove the characters which have odd index values of a given string. Please write a Python function odd_values_string(str) for the task.\n```python": [
+            [
+                "def solution(str):\n    result = ''\n    for i in range(len(str)):\n        if i % 2 == 0:\n            result = result + str[i]\n    return result",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to return the negative numbers in a list. Please write a Python function neg_nos(list1) for the task.\n```python": [
+            [
+                "def solution(list1):\n    out = []\n    for num in list1:\n        if num < 0:\n            out.append(num)\n    return out",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to reverse only the vowels of a given string (where y is not a vowel). Please write a Python function reverse_vowels(str1) for the task.\n```python": [
+            [
+                "def solution(str1):\n    vowels = ''\n    for char in str1:\n        if char in 'aeiouAEIOU':\n            vowels += char\n    result_string = ''\n    for char in str1:\n        if char in 'aeiouAEIOU':\n            result_string += vowels[-1]\n            vowels = vowels[:-1]\n        else:\n            result_string += char\n    return result_string",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to set all even bits of a given number. Please write a Python function even_bit_set_number(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    count = 0\n    res = 0\n    temp = n\n    while temp > 0:\n        if count % 2 == 1:\n            res |= 1 << count\n        count += 1\n        temp >>= 1\n    return n | res",
+                false
+            ]
+        ],
+        "You are an expert Python programmer, and here is your task: Write a python function to set the left most unset bit. Please write a Python function set_left_most_unset_bit(n) for the task.\n```python": [
+            [
+                "def solution(n):\n    if not n & n + 1:\n        return n\n    (pos, temp, count) = (0, n, 0)\n    while temp:\n        if not temp & 1:\n            pos = count\n        count += 1\n        temp >>= 1\n    return n | 1 << pos",
+                false
+            ]
+        ]
+    },
+    "prompt2io": {
+        "You are an expert Python programmer, and here is your task: Given a list of tuples, write a function that returns the first value of the tuple with the smallest second value. Please write a Python function index_minimum(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that checks whether a string contains the 'a' character followed by two or three 'b' characters. Please write a Python function text_match_two_three(text) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that counts the number of pairs of integers in a list that xor to an even number. Please write a Python function find_even_pair(A) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that matches a word containing 'z'. Please write a Python function text_match_wordz(text) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that returns integers x and y that satisfy ax + by = n as a tuple, or return None if no solution exists. Please write a Python function find_solution(a, b, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that returns the perimeter of a square given its side length as input. Please write a Python function square_perimeter(a) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes an array and finds the maximum sum of a bitonic subsequence for the given array, where a sequence is bitonic if it is first increasing and then decreasing. Please write a Python function max_sum(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a dictionary and integer n and filters the dictionary to only include entries with values greater than or equal to n. Please write a Python function dict_filter(dict,n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an element and inserts the element before each element in the list, and returns the resulting list. Please write a Python function insert_element(list,element) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer L and splits the given list into two parts where the length of the first part of the list is L, and returns the resulting lists in a tuple. Please write a Python function split_two_parts(list1, L) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer n and returns a list containing the n largest items from the list. Please write a Python function larg_nnum(list1,n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and an integer n and splits a list for every nth element, returning a list of the resulting lists. Please write a Python function list_split(S, step) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and element and checks whether all items in the list are equal to the given element. Please write a Python function check_element(list,element) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list and length n, and generates all combinations (with repetition) of the elements of the list and returns a list with a tuple for each combination. Please write a Python function combinations_colors(l, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a list of tuples and returns a list containing the rear element of each tuple. Please write a Python function rear_extract(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a sorted array, its length (n), and an element and returns whether the element is the majority element in the given sorted array. (The majority element is the element that occurs more than n/2 times.) Please write a Python function is_majority(arr, n, x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in a string and character, replaces blank spaces in the string with the character, and returns the string. Please write a Python function replace_blank(str1,char) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved. Please write a Python function re_arrange_array(arr, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in an array and element and returns a tuple containing a boolean that indicates if the element is in the array and the index position of the element (or -1 if the element is not found). Please write a Python function sequential_search(dlist, item) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in positive integers m and n and finds the number of possible sequences of length n, such that each element is a positive integer and is greater than or equal to twice the previous element but less than or equal to m. Please write a Python function get_total_number_of_sequences(m,n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in the radius and height of a cylinder and returns the the volume. Please write a Python function volume_cylinder(r,h) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two lists and replaces the last element of the first list with the elements of the second list. Please write a Python function replace_list(list1,list2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two numbers and returns a tuple with the second number and then the first number. Please write a Python function swap_numbers(a,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two tuples and performs mathematical division operation element-wise across the given tuples. Please write a Python function division_elements(test_tup1, test_tup2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes in two tuples and subtracts the elements of the first tuple by the elements of the second tuple with the same index. Please write a Python function substract_elements(test_tup1, test_tup2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function that takes two lists and returns true if they have at least one common element. Please write a Python function common_element(list1, list2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to append the given list to the given tuples. Please write a Python function add_lists(test_list, test_tup) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to apply a given format string to all of the elements in a list. Please write a Python function add_string(list_, string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate a dog's age in dog's years. Please write a Python function dog_age(h_age) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the maximum aggregate from the list of tuples. Please write a Python function max_aggregate(stdata) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum (n - 2*i) from i=0 to n // 2, for instance n + (n-2) + (n-4)... (until n-x =< 0). Please write a Python function sum_series(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum of perrin numbers. Please write a Python function cal_sum(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the sum of the negative numbers of a given list of numbers. Please write a Python function sum_negativenum(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate the value of 'a' to the power 'b'. Please write a Python function power(a,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to calculate whether the matrix is a magic square. Please write a Python function magic_square_test(my_matrix) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check if a string is present as a substring in a given list of string values. Please write a Python function find_substring(str1, sub_str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check if a string represents an integer or not. Please write a Python function check_integer(text) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check if all the elements in tuple have same data type or not. Please write a Python function check_type(test_tuple) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check if given tuple contains no duplicates. Please write a Python function check_distinct(test_tup) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check if the given number is woodball or not. Please write a Python function is_woodall(x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether a list contains the given sublist or not. Please write a Python function is_sublist(l, s) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether all dictionaries in a list are empty or not. Please write a Python function empty_dit(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether an element exists within a tuple. Please write a Python function check_tuplex(tuplex,tuple1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether it follows the sequence given in the patterns array. Please write a Python function is_samepatterns(colors, patterns) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the entered number is greater than the elements of the given array. Please write a Python function check_greater(arr, number) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given month number contains 31 days or not. Please write a Python function check_monthnumb_number(monthnum2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given number is undulating or not. Please write a Python function is_undulating(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to check whether the given string starts and ends with the same character or not. Please write a Python function check_char(string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to compute the sum of digits of each number of a given list. Please write a Python function sum_of_digits(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to concatenate each element of tuple by the delimiter. Please write a Python function concatenate_tuple(test_tup) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format. Please write a Python function change_date_format(dt) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a given string to a tuple of characters. Please write a Python function string_to_tuple(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a given tuple of positive integers into a single integer. Please write a Python function tuple_to_int(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a snake case string to camel case string. Please write a Python function snake_to_camel(word) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a string to a list of strings split on the space character. Please write a Python function string_to_list(string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert a tuple to a string. Please write a Python function tup_string(tup1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert all possible convertible elements in a list of lists to floats. Please write a Python function list_to_float(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert more than one list to nested dictionary. Please write a Python function convert_list_dictionary(l1, l2, l3) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to convert the given decimal number to its binary equivalent, represented as a string with no leading zeros. Please write a Python function decimal_to_binary(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count bidirectional tuple pairs. Please write a Python function count_bidirectional(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count number items that are identical in the same position of three given lists. Please write a Python function count_samepair(list1,list2,list3) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of characters in a string that occur at the same position in the string as in the English alphabet (case insensitive). Please write a Python function count_char_position(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of occurence of the string 'std' in a given string. Please write a Python function count_occurance(s) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of occurrences of a number in a given list. Please write a Python function frequency(a,x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count the number of sublists containing a particular element. Please write a Python function count_element_in_list(list1, x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to count the total number of characters in a string. Please write a Python function count_charac(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to create the next bigger number by rearranging the digits of a given number. Please write a Python function rearrange_bigger(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to determine if the sum of the divisors of two integers are the same. Please write a Python function are_equivalent(num1, num2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to drop empty items from a given dictionary. Please write a Python function drop_empty(dict1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to extract only the rear index element of each string in the given tuple. Please write a Python function extract_rear(test_tuple) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to extract specified size of strings from a given list of string values. Please write a Python function extract_string(str, l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to extract the elementwise and tuples from the given two tuples. Please write a Python function and_tuples(test_tup1, test_tup2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to extract the nth element from a given list of tuples. Please write a Python function extract_nth_element(list1, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to extract the number of unique tuples in the given list. Please write a Python function extract_freq(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to filter odd numbers. Please write a Python function filter_oddnumbers(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find all possible combinations of the elements of a given list. Please write a Python function combinations_list(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find cubes of individual elements in a list. Please write a Python function cube_nums(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find minimum of three numbers. Please write a Python function min_of_three(a,b,c) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find nth centered hexagonal number. Please write a Python function centered_hexagonal_number(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find number of lists present in the given tuple. Please write a Python function find_lists(Input) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the Eulerian number a(n, m). Please write a Python function eulerian_num(n, m) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the area of a rectangle. Please write a Python function rectangle_area(l,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the ascii value of a character. Please write a Python function ascii_value(k) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the circumference of a circle. Please write a Python function circle_circumference(r) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the closest smaller number than n. Please write a Python function closest_num(N) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the common elements in given nested lists. Please write a Python function common_in_nested_lists(nestedlist) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the count of all binary sequences of length 2n such that sum of first n bits is same as sum of last n bits. Please write a Python function count_binary_seq(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the depth of a dictionary. Please write a Python function dict_depth(d) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the directrix of a parabola. Please write a Python function parabola_directrix(a, b, c) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the first adverb and their positions in a given sentence. Please write a Python function find_adverb_position(text) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the intersection of two arrays. Please write a Python function intersection_array(array_nums1,array_nums2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the item with maximum frequency in a given list. Please write a Python function max_occurrences(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the kth element in the given array using 1-based indexing. Please write a Python function kth_element(arr, k) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the largest sum of a contiguous array in the modified array which is formed by repeating the given array k times. Please write a Python function max_sub_array_sum_repeated(a, n, k) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the lateral surface area of a cube given its side length. Please write a Python function lateralsurface_cube(l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the lateral surface area of a cylinder. Please write a Python function lateralsuface_cylinder(r,h) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the length of the longest palindromic subsequence in the given string. Please write a Python function lps(str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the list of maximum length in a list of lists. Please write a Python function max_length(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum absolute product between numbers in pairs of tuples within a given list. Please write a Python function max_product_tuple(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum difference between available pairs in the given tuple list. Please write a Python function max_difference(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum difference between the number of 0s and number of 1s in any sub-string of the given binary string. Please write a Python function find_length(string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum product formed by multiplying numbers of an increasing subsequence of that array. Please write a Python function max_product(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum product subarray of the given array. Please write a Python function max_subarray_product(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum sum of increasing subsequence from prefix until ith index and also including a given kth element which is after i, i.e., k > i . Please write a Python function max_sum_increasing_subseq(a, n, index, k) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum sum possible by using the given equation f(n) = max( (f(n/2) + f(n/3) + f(n/4) + f(n/5)), n). Please write a Python function get_max_sum (n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the maximum value in a given heterogeneous list. Please write a Python function max_val(listval) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the median length of a trapezium. Please write a Python function median_trapezium(base1,base2,height) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the median of three numbers. Please write a Python function median_numbers(a,b,c) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the minimum product from the pairs of tuples within a given list. Please write a Python function min_product_tuple(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the minimum value in a given heterogeneous list. Please write a Python function min_val(listval) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the n'th lucas number. Please write a Python function find_lucas(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the n'th star number. Please write a Python function find_star_num(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the next smallest palindrome of a specified integer, returned as an integer. Please write a Python function next_smallest_palindrome(num) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth decagonal number. Please write a Python function is_num_decagonal(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth hexagonal number. Please write a Python function hexagonal_num(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth newman\u2013shanks\u2013williams prime number. Please write a Python function newman_prime(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth number in the newman conway sequence. Please write a Python function sequence(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth octagonal number. Please write a Python function is_octagonal(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the nth tetrahedral number. Please write a Python function tetrahedral_number(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the number of elements that occurs before the tuple element in the given tuple. Please write a Python function count_first_elements(test_tup) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the number of ways to partition a set of Bell numbers. Please write a Python function bell_number(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the pairwise addition of the neighboring elements of the given tuple. Please write a Python function add_pairwise(test_tup) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the perimeter of a regular pentagon from the length of its sides. Please write a Python function perimeter_pentagon(a) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the ratio of zeroes to non-zeroes in an array of integers. Please write a Python function zero_count(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the ration of positive numbers in an array of integers. Please write a Python function positive_count(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the specified number of largest products from two given lists, selecting one factor from each list. Please write a Python function large_product(nums1, nums2, N) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the sum of numbers in a list within a range specified by two indices. Please write a Python function sum_range_list(list1, m, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the surface area of a cube of a given size. Please write a Python function surfacearea_cube(l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the surface area of a sphere. Please write a Python function surfacearea_sphere(r) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the third side of a right angled triangle. Please write a Python function otherside_rightangle(w,h) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a cone. Please write a Python function volume_cone(r,h) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a cube given its side length. Please write a Python function volume_cube(l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find the volume of a sphere. Please write a Python function volume_sphere(r) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find tuples which have all elements divisible by k from the given list of tuples. Please write a Python function find_tuples(test_list, K) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find whether a given array of integers contains any duplicate element. Please write a Python function test_duplicate(arraynums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find whether all the given tuples have equal length or not. Please write a Python function get_equal(Input) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to find words that are longer than n characters from a given list of words. Please write a Python function long_words(n, str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to flatten a given nested list structure. Please write a Python function flatten_list(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to flatten a list and sum all of its elements. Please write a Python function recursive_list_sum(data_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to flatten the list of lists into a single set of numbers. Please write a Python function extract_singly(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to join a list of multiple integers into a single integer. Please write a Python function multiple_to_single(L) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to maximize the given two tuples. Please write a Python function maximize_elements(test_tup1, test_tup2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to merge three dictionaries into a single dictionary. Please write a Python function merge_dictionaries_three(dict1,dict2, dict3) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to merge three lists into a single sorted list. Please write a Python function merge_sorted_list(num1,num2,num3) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to multiply all the numbers in a list and divide with the length of the list. Please write a Python function multiply_num(numbers) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to multiply two integers. Please write a Python function multiply_int(x, y) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to perform index wise multiplication of tuple elements in the given two tuples. Please write a Python function index_multiplication(test_tup1, test_tup2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove all elements from a given list present in another list. Please write a Python function remove_elements(list1, list2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove all whitespaces from the given string. Please write a Python function remove_whitespaces(text1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove characters from the first string which are present in the second string. Please write a Python function remove_dirty_chars(string, second_string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove lowercase substrings from a given string. Please write a Python function remove_lowercase(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove odd characters in a string. Please write a Python function remove_odd(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to remove uppercase substrings from a given string. Please write a Python function remove_uppercase(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to replace characters in a string. Please write a Python function replace_char(str1,ch,newch) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to return the sum of all divisors of a number. Please write a Python function sum_div(number) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to return two words from a list of words starting with letter 'p'. Please write a Python function start_withp(words) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to reverse each string in a given list of string values. Please write a Python function reverse_string_list(stringlist) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to round every number of a given list of numbers and print the total sum multiplied by the length of the list. Please write a Python function round_and_sum(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort a dictionary by value. Please write a Python function sort_counter(dict1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort a given matrix in ascending order according to the sum of its rows. Please write a Python function sort_matrix(M) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of elements. Please write a Python function comb_sort(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of elements. Please write a Python function pancake_sort(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort a list of tuples using the second value of each tuple. Please write a Python function subject_marks(subjectmarks) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort each sublist of strings in a given list of lists. Please write a Python function sort_sublists(input_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sort the given array by using shell sort. Please write a Python function shell_sort(my_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to subtract two lists element-wise. Please write a Python function sub_list(nums1,nums2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to sum all amicable numbers from 1 to a specified number. Please write a Python function amicable_numbers_sum(limit) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a function to that returns true if the input string contains sequences of lowercase letters joined with an underscore and false otherwise. Please write a Python function text_lowercase_underscore(text) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function takes in an integer and check whether the frequency of each digit in the integer is less than or equal to the digit itself. Please write a Python function validate(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function takes in an integer n and returns the sum of squares of first n even natural numbers. Please write a Python function square_Sum(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that returns the number of integer elements in a given list. Please write a Python function count_integer(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a non-negative number and returns the number of prime numbers less than the given non-negative number. Please write a Python function count_Primes_nums(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a positive integer n and finds the sum of even index binomial coefficients. Please write a Python function even_binomial_Coeff_Sum( n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in a tuple and an element and counts the occcurences of the element in the tuple. Please write a Python function count_X(tup, x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in an integer n and finds the sum of the first n even natural numbers that are raised to the fifth power. Please write a Python function even_Power_Sum(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function that takes in an integer n and returns the sum of the squares of the first n odd natural numbers. Please write a Python function square_Sum(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check if a given number is one less than twice its reverse. Please write a Python function check(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check if the elements of a given list are unique or not. Please write a Python function all_unique(test_list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether any value in a sequence exists in a sequence or not. Please write a Python function overlapping(list1,list2) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given array is monotonic or not. Please write a Python function is_Monotonic(A) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given list contains consecutive numbers or not. Please write a Python function check_Consecutive(l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not. Please write a Python function is_Sum_Of_Powers_Of_Two(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given number can be represented as the difference of two squares or not. Please write a Python function dif_Square(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the given two integers have opposite sign or not. Please write a Python function opposite_Signs(x,y) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to check whether the length of the word is odd or not. Please write a Python function word_len(s) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to convert complex numbers to polar coordinates. Please write a Python function convert(numbers) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to convert the given string to lower case. Please write a Python function is_lower(string) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count inversions in an array. Please write a Python function get_Inv_Count(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of non-empty substrings of a given string. Please write a Python function number_of_substrings(str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of positive numbers in a list. Please write a Python function pos_count(list) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of set bits (binary digits with value 1) in a given number. Please write a Python function count_Set_Bits(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the number of substrings with the sum of digits equal to their length. Please write a Python function count_Substrings(s) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the occurence of all elements of list in a tuple. Please write a Python function count_Occurrence(tup, lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count the upper case characters in a given string. Please write a Python function upper_ctr(str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to count true booleans in the given list. Please write a Python function count(lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find a pair with highest product from a given array of integers. Please write a Python function max_Product(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find quotient of two numbers (rounded down to the nearest integer). Please write a Python function find(n,m) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find smallest number in a list. Please write a Python function smallest_num(xs) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the average of cubes of first n natural numbers. Please write a Python function find_Average_Of_Cube(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the character made by adding the ASCII value of all the characters of the given string modulo 26. Please write a Python function get_Char(strr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the cube sum of first n even natural numbers. Please write a Python function cube_Sum(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the element of a list having maximum length. Please write a Python function Find_Max(lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the element that appears only once in a sorted array. Please write a Python function search(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the first digit of a given number. Please write a Python function first_Digit(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the first non-repeated character in a given string. Please write a Python function first_non_repeating_character(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the highest power of 2 that is less than or equal to n. Please write a Python function highest_Power_of_2(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the largest number that can be formed with the given list of digits. Please write a Python function find_Max_Num(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the last digit of a given number. Please write a Python function last_Digit(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the length of the longest word. Please write a Python function len_log(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the length of the smallest list in a list of lists. Please write a Python function Find_Min_Length(lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the maximum difference between any two elements in a given array. Please write a Python function max_Abs_Diff(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the maximum of two numbers. Please write a Python function maximum(a,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the minimum of two numbers. Please write a Python function minimum(a,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the next perfect square greater than a given number. Please write a Python function next_Perfect_Square(N) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the number of divisors of a given integer. Please write a Python function divisor(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the number of numbers with an odd value when rotating a binary string the given number of times. Please write a Python function odd_Equivalent(s,n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the product of the array multiplication modulo n. Please write a Python function find_remainder(arr, n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the smallest power of 2 greater than or equal to n. Please write a Python function next_power_of_2(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sublist having minimum length. Please write a Python function Find_Min(lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of common divisors of two given numbers. Please write a Python function sum(a,b) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of even factors of a number. Please write a Python function sumofFactors(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of even numbers at even positions of a list. Please write a Python function sum_even_and_even_index(arr) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the sum of the largest and smallest value in a given array. Please write a Python function big_sum(nums) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find the volume of a triangular prism. Please write a Python function find_Volume(l,b,h) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find whether a number is divisible by 11. Please write a Python function is_Diff(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to find whether the parity of a given number is odd. Please write a Python function find_Parity(x) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to get the first element of each sublist. Please write a Python function Extract(lst) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to remove first and last occurrence of a given character from the string. Please write a Python function remove_Occ(s,ch) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to remove odd numbers from a given list. Please write a Python function remove_odd(l) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to remove the characters which have odd index values of a given string. Please write a Python function odd_values_string(str) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to return the negative numbers in a list. Please write a Python function neg_nos(list1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to reverse only the vowels of a given string (where y is not a vowel). Please write a Python function reverse_vowels(str1) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to set all even bits of a given number. Please write a Python function even_bit_set_number(n) for the task.\n```python": false,
+        "You are an expert Python programmer, and here is your task: Write a python function to set the left most unset bit. Please write a Python function set_left_most_unset_bit(n) for the task.\n```python": false
+    }
+}

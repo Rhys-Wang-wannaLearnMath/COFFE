@@ -1,0 +1,9 @@
+cirron==0.3
+transformers==4.41.0
+docker==7.1.0
+datasets==2.19.1
+coverage
+openai
+timeout_decorator
+scipy
+termcolor

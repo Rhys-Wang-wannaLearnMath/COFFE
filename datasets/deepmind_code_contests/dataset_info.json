@@ -1,0 +1,26 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "task_id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "description": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "solutions": [
+      {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    ],
+    "input_output": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
