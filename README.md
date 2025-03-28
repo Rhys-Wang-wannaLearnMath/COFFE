@@ -39,6 +39,7 @@ cd Coffe && pip install .
 docker build . -t coffe
 ```
 Note that if your network requires proxy, please modify the Dockerfile in `Coffe/` to indicate it, otherwise the docker image building process could fail.
+
 3. Go back to your workspace and initialize COFFE:
 ```bash
 cd .. && coffe init
