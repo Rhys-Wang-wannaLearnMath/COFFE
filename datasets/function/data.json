@@ -2985,6 +2985,7 @@
     {
         "code": "def list_to_float(test_list):\n  res = []\n  for tup in test_list:\n    temp = []\n    for ele in tup:\n      if ele.isalpha():\n        temp.append(ele)\n      else:\n        temp.append(float(ele))\n    res.append((temp[0],temp[1])) \n  return res",
         "dataset": "mbpp",
+        "entry_point": "list_to_float",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to convert all possible convertible elements in a list of lists to floats. Please write a Python function list_to_float(test_list) for the task.\n```python",
         "prompt": "Write a function to convert all possible convertible elements in a list of lists to floats.",
         "source_file": "Mike's Copy of Benchmark Questions Verification V2.ipynb",
@@ -3472,6 +3473,7 @@
     {
         "code": "from array import array\ndef positive_count(nums):\n    n = len(nums)\n    n1 = 0\n    for x in nums:\n        if x > 0:\n            n1 += 1\n        else:\n          None\n    return round(n1/n,2)",
         "dataset": "mbpp",
+        "entry_point": "positive_count",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to find the ration of positive numbers in an array of integers. Please write a Python function positive_count(nums) for the task.\n```python",
         "prompt": "Write a function to find the ration of positive numbers in an array of integers.",
         "source_file": "charlessutton@: Benchmark Questions Verification V2.ipynb",
@@ -3909,6 +3911,7 @@
     {
         "code": "def extract_freq(test_list):\n  res = len(list(set(tuple(sorted(sub)) for sub in test_list)))\n  return (res)",
         "dataset": "mbpp",
+        "entry_point": "extract_freq",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to extract the number of unique tuples in the given list. Please write a Python function extract_freq(test_list) for the task.\n```python",
         "prompt": "Write a function to extract the number of unique tuples in the given list.",
         "source_file": "Benchmark Questions Verification V2.ipynb",
@@ -5028,6 +5031,7 @@
     {
         "code": "def re_arrange_array(arr, n):\n  j=0\n  for i in range(0, n):\n    if (arr[i] < 0):\n      temp = arr[i]\n      arr[i] = arr[j]\n      arr[j] = temp\n      j = j + 1\n  return arr",
         "dataset": "mbpp",
+        "entry_point": "re_arrange_array",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved. Please write a Python function re_arrange_array(arr, n) for the task.\n```python",
         "prompt": "Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved.",
         "source_file": "Benchmark Questions Verification V2.ipynb",
@@ -5836,6 +5840,7 @@
     {
         "code": "def intersection_array(array_nums1,array_nums2):\n result = list(filter(lambda x: x in array_nums1, array_nums2)) \n return result",
         "dataset": "mbpp",
+        "entry_point": "intersection_array",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to find the intersection of two arrays. Please write a Python function intersection_array(array_nums1,array_nums2) for the task.\n```python",
         "prompt": "Write a function to find the intersection of two arrays.",
         "source_file": "Benchmark Questions Verification V2.ipynb",
@@ -6250,6 +6255,7 @@
     {
         "code": "def common_element(list1, list2):\n     result = False\n     for x in list1:\n         for y in list2:\n             if x == y:\n                 result = True\n                 return result",
         "dataset": "mbpp",
+        "entry_point": "common_element",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function that takes two lists and returns true if they have at least one common element. Please write a Python function common_element(list1, list2) for the task.\n```python",
         "prompt": "Write a function that takes two lists and returns true if they have at least one common element.",
         "source_file": "charlessutton@: Benchmark Questions Verification V2.ipynb",
@@ -6372,6 +6378,7 @@
     {
         "code": "import re  \nregex = r'^[a-z]$|^([a-z]).*\\1$'\ndef check_char(string): \n\tif(re.search(regex, string)): \n\t\treturn \"Valid\" \n\telse: \n\t\treturn \"Invalid\" ",
         "dataset": "mbpp",
+        "entry_point": "check_char",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to check whether the given string starts and ends with the same character or not. Please write a Python function check_char(string) for the task.\n```python",
         "prompt": "Write a function to check whether the given string starts and ends with the same character or not.",
         "source_file": "charlessutton@: Benchmark Questions Verification V2.ipynb",
@@ -8563,6 +8570,7 @@
     {
         "code": "def rearrange_bigger(n):\n    nums = list(str(n))\n    for i in range(len(nums)-2,-1,-1):\n        if nums[i] < nums[i+1]:\n            z = nums[i:]\n            y = min(filter(lambda x: x > z[0], z))\n            z.remove(y)\n            z.sort()\n            nums[i:] = [y] + z\n            return int(\"\".join(nums))\n    return False",
         "dataset": "mbpp",
+        "entry_point": "rearrange_bigger",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to create the next bigger number by rearranging the digits of a given number. Please write a Python function rearrange_bigger(n) for the task.\n```python",
         "prompt": "Write a function to create the next bigger number by rearranging the digits of a given number.",
         "source_file": "Benchmark Questions Verification V2.ipynb",
@@ -8881,6 +8889,7 @@
     {
         "code": "def empty_dit(list1):\n empty_dit=all(not d for d in list1)\n return empty_dit",
         "dataset": "mbpp",
+        "entry_point": "empty_dit",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to check whether all dictionaries in a list are empty or not. Please write a Python function empty_dit(list1) for the task.\n```python",
         "prompt": "Write a function to check whether all dictionaries in a list are empty or not.",
         "source_file": "Mike's Copy of Benchmark Questions Verification V2.ipynb",
@@ -9068,6 +9077,7 @@
     {
         "code": "def upper_ctr(str):\n    upper_ctr = 0\n    for i in range(len(str)):\n          if str[i] >= 'A' and str[i] <= 'Z': upper_ctr += 1\n          return upper_ctr",
         "dataset": "mbpp",
+        "entry_point": "upper_ctr",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a python function to count the upper case characters in a given string. Please write a Python function upper_ctr(str) for the task.\n```python",
         "prompt": "Write a python function to count the upper case characters in a given string.",
         "source_file": "charlessutton@: Benchmark Questions Verification V2.ipynb",
@@ -9868,6 +9878,7 @@
     {
         "code": "import math \ndef div_sum(n): \n  total = 1\n  i = 2\n\n  while i * i <= n:\n    if (n % i == 0):\n      total = (total + i + math.floor(n / i))\n    i += 1\n\n  return total\n\ndef are_equivalent(num1, num2): \n    return div_sum(num1) == div_sum(num2); ",
         "dataset": "mbpp",
+        "entry_point": "are_equivalent",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to determine if the sum of the divisors of two integers are the same. Please write a Python function are_equivalent(num1, num2) for the task.\n```python",
         "prompt": "Write a function to determine if the sum of the divisors of two integers are the same.",
         "source_file": "Benchmark Questions Verification V2.ipynb",
@@ -10124,6 +10135,7 @@
     {
         "code": "def count_bidirectional(test_list):\n  res = 0\n  for idx in range(0, len(test_list)):\n    for iidx in range(idx + 1, len(test_list)):\n      if test_list[iidx][0] == test_list[idx][1] and test_list[idx][1] == test_list[iidx][0]:\n        res += 1\n  return res",
         "dataset": "mbpp",
+        "entry_point": "count_bidirectional",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to count bidirectional tuple pairs. Please write a Python function count_bidirectional(test_list) for the task.\n```python",
         "prompt": "Write a function to count bidirectional tuple pairs.",
         "source_file": "charlessutton@: Benchmark Questions Verification V2.ipynb",
@@ -10214,6 +10226,7 @@
     {
         "code": "def sum_div(number):\n    divisors = [1]\n    for i in range(2, number):\n        if (number % i)==0:\n            divisors.append(i)\n    return sum(divisors)",
         "dataset": "mbpp",
+        "entry_point": "sum_div",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to return the sum of all divisors of a number. Please write a Python function sum_div(number) for the task.\n```python",
         "prompt": "Write a function to return the sum of all divisors of a number.",
         "source_file": "Ellen's Copy of Benchmark Questions Verification V2.ipynb",
@@ -10810,6 +10823,7 @@
     {
         "code": "def find_lists(Input): \n\tif isinstance(Input, list): \n\t\treturn 1\n\telse: \n\t\treturn len(Input) ",
         "dataset": "mbpp",
+        "entry_point": "find_lists",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a function to find number of lists present in the given tuple. Please write a Python function find_lists(Input) for the task.\n```python",
         "prompt": "Write a function to find number of lists present in the given tuple.",
         "source_file": "Mike's Copy of Benchmark Questions Verification V2.ipynb",
@@ -11484,6 +11498,7 @@
     {
         "code": "def get_Char(strr):  \n    summ = 0\n    for i in range(len(strr)): \n        summ += (ord(strr[i]) - ord('a') + 1)  \n    if (summ % 26 == 0): \n        return ord('z') \n    else: \n        summ = summ % 26\n        return chr(ord('a') + summ - 1)",
         "dataset": "mbpp",
+        "entry_point": "get_Char",
         "final_prompt": "You are an expert Python programmer, and here is your task: Write a python function to find the character made by adding the ASCII value of all the characters of the given string modulo 26. Please write a Python function get_Char(strr) for the task.\n```python",
         "prompt": "Write a python function to find the character made by adding the ASCII value of all the characters of the given string modulo 26.",
         "source_file": "Mike's Copy of Benchmark Questions Verification V2.ipynb",

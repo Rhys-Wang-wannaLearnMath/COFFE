@@ -505,7 +505,7 @@ def unsafe_execute(
                         result["status_reason"] = None
                         results.append(result)
                     except BaseException as e:
-                        traceback.print_exc()
+                        #traceback.print_exc()
                         if not isinstance(testcase, str):
                             result["input"] = testcase["input"]
                             result["output"] = testcase["output"][0]

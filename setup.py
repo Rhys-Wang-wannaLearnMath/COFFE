@@ -21,12 +21,13 @@ setup(
         "Topic :: Software Development :: Build Tools"
     ],
     keywords = ["python", "code generation", "large language model", "performance", "LLM evaluation"],
-    packages = ["coffe"],
+    packages = ["coffe", "stgen"],
     python_requries='>=3.9',
     install_requires = open(path.join(path.abspath(path.dirname(__file__)), "requirements.txt"), "r", encoding = "utf-8").read().splitlines(),
     entry_points={
         'console_scripts': [
-            'coffe = coffe.main:main'
+            'coffe = coffe.main:main',
+            'stgen = stgen.main:main'
         ]
     }
 )
