@@ -1,6 +1,6 @@
 # COFFE
 
-COFFE is a Python benchmark for evaluating the time efficiency of LLM-generated code. It is released by the FSE'25 paper "[COFFE: A Code Efficiency Benchmark for Code Generation](https://arxiv.org/abs/2502.02827)".
+COFFE is a Python benchmark for evaluating the time efficiency of LLM-generated code. It is released by the FSE'25 paper "[COFFE: A Code Efficiency Benchmark for Code Generation](https://arxiv.org/abs/2502.02827)". You can also refer to the [project webpage](https://www.yunpeng.site/projects/coffe/) for more details.
 
 # Data
 
