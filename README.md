@@ -70,6 +70,12 @@ Edit the `/etc/sysctl.conf` by adding the following line:
 kernel.perf_event_paranoid= -1
 ```
 
+Then reload the configuration:
+
+```bash
+sysctl -p /etc/sysctl.conf
+```
+
 ## Usage
 
 ### Pipeline
