@@ -5,6 +5,7 @@ from termcolor import colored
 import sys
 import json
 from cirron import Collector
+import time
 
 from coffe.evaluate import evaluate
 from coffe.config import benchmarks
@@ -30,9 +31,11 @@ def init(args):
     with open("coffe_init.json", "w", encoding = "utf-8") as f:
         f.write(json.dumps(data))
 
-    with Collector() as c:
-        time.sleep(0.1)
-    
+    try:
+        with Collector() as c:
+            time.sleep(0.1)
+    except:
+        raise OSError(f"Your OS does not support measuring CPU instruction counts.")
     if c.counters.instruction_count <= 0:
         raise OSError(f"Your OS does not support measuring CPU instruction counts.")
     
