@@ -1,8 +1,8 @@
 # COFFE
 
-COFFE is a Python benchmark for evaluating the time efficiency of LLM-generated code. It is released by the FSE'25 paper "[COFFE: A Code Efficiency Benchmark for Code Generation](https://arxiv.org/abs/2502.02827)". For details about the stressful test case generation approach STGen, please see `stgen/`.
+COFFE is a Python benchmark for evaluating the time efficiency of LLM-generated code. It is released by the FSE'25 paper "[COFFE: A Code Efficiency Benchmark for Code Generation](https://arxiv.org/abs/2502.02827)". You can also refer to the [project webpage](https://www.yunpeng.site/projects/coffe/) for more details.
 
-# Data
+## Data
 
 COFFE is designed for evaluating both function-level code and file-level code. It contains selected instances from HumanEval, MBPP, APPS and Code Contests. COFFE keeps the original test cases in these benchmarks as *correctness test cases* and adds new test cases designed for time efficiency evaluation as *stressful test cases*.
 
@@ -149,6 +149,10 @@ This command calculate the efficient@1 or speedup.
 
 **Note:**
 This command requires the index file and the instruction file as COFFE compares the performance of predictions with grouth truth solutions to calculate the metrics.
+
+## STGen
+
+For details about the stressful test case generation approach STGen, please see `stgen/`.
 
 
 ## Cite
