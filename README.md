@@ -46,7 +46,7 @@ cd .. && coffe
 ```
 If your installation succeeds, you could see the statistics of COFFE. 
 
-If your installation fails with the reason `Your OS does not support measuring CPU instruction counts, this may be because of a permission error`. In this case, check the default permission level in your system:
+If your installation fails with the reason `Your OS does not support measuring CPU instruction counts`, this may be because of a permission error. In this case, check the default permission level in your system:
 
 ```bash
 cat /proc/sys/kernel/perf_event_paranoid
