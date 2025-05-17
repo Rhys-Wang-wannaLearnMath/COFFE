@@ -42,9 +42,33 @@ Note that if your network requires proxy, please modify the Dockerfile in `Coffe
 
 3. Go back to your workspace and initialize COFFE:
 ```bash
-cd .. && coffe init
+cd .. && coffe
 ```
 If your installation succeeds, you could see the statistics of COFFE. 
+
+If your installation fails with the reason `Your OS does not support measuring CPU instruction counts, this may be because of a permission error. In this case, check the default permission level in your system:
+
+```bash
+cat /proc/sys/kernel/perf_event_paranoid
+```
+
+If the output is greater than `2`, then you do not have permission to measure CPU instruction counts by default.
+
+To enable this measurement, try to set the `/proc/sys/kernel/perf_event_paranoid` to `2`, `1`, `0,` or `-1`. The smaller it is, the larger the permission you have.
+
+```
+echo 1 | sudo tee /proc/sys/kernel/perf_event_paranoid
+```
+
+This will temporarily allow you to access the CPU instruction count and will expire after you restart the system.
+
+If you want to permanently allow the measurement (This may induce security issues!):
+
+Edit the `/etc/sysctl.conf` by adding the following line:
+
+```
+kernel.perf_event_paranoid= -1
+```
 
 ## Usage
 
