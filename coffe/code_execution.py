@@ -381,6 +381,7 @@ def unsafe_testcase_execute(
         # allow only 1GB memory usage
         maximum_memory_bytes = 1024 * 1024 * 1024
         reliability_guard(maximum_memory_bytes=maximum_memory_bytes)
+        random.seed(1024)
         try:
             if not generator:
                 eval(testcase)
@@ -468,6 +469,7 @@ def unsafe_execute(
         maximum_memory_bytes = 4 * 1024 * 1024 * 1024
         # reliability_guard(maximum_memory_bytes=maximum_memory_bytes)
         exec_globals = {}
+        random.seed(1024)
         try:
             if io:
                 code = code.replace("if __name__", "if 1 or __name__")
@@ -690,6 +692,7 @@ def unsafe_runtime_execute(
             # allow only 4GB memory usage
             maximum_memory_bytes = 4 * 1024 * 1024 * 1024
             reliability_guard(maximum_memory_bytes=maximum_memory_bytes)
+            random.seed(1024)
             try:
                 if io:
                     new_code = code.replace("if __name__", "if 1 or __name__")
@@ -795,7 +798,7 @@ def unsafe_coverage_execute(
     sys.setrecursionlimit(1000000)
     def unsafe_execute():
         new_code = code.replace("if __name__", "if 1 or __name__")
-        with open("CEE/cee/temp.py", "w", encoding = "utf-8") as f:
+        with open("temp.py", "w", encoding = "utf-8") as f:
             f.write(new_code)
         with create_tempdir():
             # These system calls are needed when cleaning up tempdir.
@@ -815,6 +818,7 @@ def unsafe_coverage_execute(
             maximum_memory_bytes = 4 * 1024 * 1024 * 1024
             cov = Coverage()
             reliability_guard(maximum_memory_bytes=maximum_memory_bytes)
+            random.seed(1024)
             try:
                 if io:
                     testcase_inputs = []
@@ -889,7 +893,7 @@ def unsafe_coverage_execute(
                         results.append(data["files"][filename]["functions"]["solution"])
                         break
             os.remove("coverage.json")
-        os.remove("CEE/cee/temp.py")
+        os.remove("temp.py")
     manager = multiprocessing.Manager()
     results = manager.list()
     p = multiprocessing.Process(
@@ -928,18 +932,18 @@ def untrusted_runtime_measure(
     execution_time = []
     execution_time_mean = []
     execution_time_std = []
-    try:
-        for i, testcase in enumerate(testcases):
-            exec_time = []
+    for i, testcase in enumerate(testcases):
+        exec_time = []
+        try:
             for _ in range(12):
                 exec_time.append(unsafe_runtime_execute(io, code, testcase, time_limits[i], timeout, generator))
             exec_time.remove(max(exec_time))
             exec_time.remove(min(exec_time))
             execution_time_mean.append(np.mean(exec_time))
             execution_time_std.append(np.std(exec_time, ddof = 1))
-    except Exception as e:
-        execution_time_mean = [0]
-        execution_time_std = [0]
+        except Exception as e:
+            execution_time_mean.append(INF)
+            execution_time_std.append(-1)
 
 
     if not std:
@@ -1003,18 +1007,18 @@ def untrusted_instruction_measure(
     instr_counts = []
     instr_counts_mean = []
     instr_counts_std = []
-    try:
-        for i, testcase in enumerate(testcases):
-            instr_count = []
+    for i, testcase in enumerate(testcases):
+        instr_count = []
+        try:
             for _ in range(12):
                 instr_count.append(unsafe_runtime_execute(io, code, testcase, time_limits[i], timeout, generator, instr = True))
             instr_count.remove(max(instr_count))
             instr_count.remove(min(instr_count))
             instr_counts_mean.append(np.mean(instr_count))
             instr_counts_std.append(np.std(instr_count, ddof=1))
-    except:
-        instr_counts_mean = [0]
-        instr_counts_std = [0]
+        except Exception as e:
+            instr_counts_mean.append(INF)
+            instr_counts_std.append(-1)
 
     if not std:
         return instr_counts_mean
@@ -1037,6 +1041,8 @@ def untrusted_coverage_measure(
     '''
     time_limits = [max(min_time_limit, gt_time_limit_factor * t) for t in ref_time]
     timeout = min(int(os.getenv("TIMEOUT_PER_TASK", 3600)), sum(time_limits)) + 1
+
+    sys.path.append(os.getcwd())
 
     try:
         coverage = unsafe_coverage_execute(io, code, testcases, time_limits, timeout, generator)
