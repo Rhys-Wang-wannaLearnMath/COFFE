@@ -21,6 +21,8 @@ from coffe.code_execution import untrusted_check, untrusted_runtime_measure, unt
 FAILED = -1
 SUCCEED = 1
 
+INF = 9999999999999999
+
 
 class Extractor(object):
     def __init__(self, dataset, output_file, dataset_repo = "datasets") -> None:
@@ -1269,9 +1271,13 @@ class Metrics(object):
                     continue
                     #raise ValueError(f"Inconsistent number of instances: {len(cic[prompt])} and {len(indexes[prompt])}")
                 gt = sum(cic[prompt][0])
+                if gt >= INF:
+                    continue
                 if len(indexes[prompt]) > 1:
                     for i, baseline in enumerate(indexes[prompt]):
                         if i == 0:
+                            continue
+                        if sum(cic[prompt][i]) >= INF:
                             continue
                         if baseline not in speedups:
                             speedups[baseline] = [0, 0]

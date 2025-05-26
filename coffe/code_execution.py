@@ -41,6 +41,8 @@ UNKNOWN = -3
 
 _mapping = {SUCCEED: _PASS, FAILED: _FAIL, TIMEOUT: _TIMEOUT, UNKNOWN: None}
 
+INF = 9999999999999999
+
 class Capturing(list):
     def __enter__(self):
         self._stdout = sys.stdout
@@ -798,7 +800,7 @@ def unsafe_coverage_execute(
     sys.setrecursionlimit(1000000)
     def unsafe_execute():
         new_code = code.replace("if __name__", "if 1 or __name__")
-        with open("temp.py", "w", encoding = "utf-8") as f:
+        with open("gittemp.py", "w", encoding = "utf-8") as f:
             f.write(new_code)
         with create_tempdir():
             # These system calls are needed when cleaning up tempdir.
