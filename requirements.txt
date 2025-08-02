@@ -8,3 +8,4 @@ timeout_decorator
 scipy
 termcolor
 python-dotenv
+setuptools
