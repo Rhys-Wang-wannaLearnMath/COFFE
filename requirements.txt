@@ -7,3 +7,4 @@ openai
 timeout_decorator
 scipy
 termcolor
+python-dotenv

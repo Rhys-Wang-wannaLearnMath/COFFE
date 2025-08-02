@@ -14,4 +14,4 @@ COPY . /Coffe
 
 RUN cd /Coffe && pip install .
 
-RUN cd .. && coffe init -d Coffe/datasets -w /
+# RUN cd .. && coffe init -d Coffe/datasets -w /
